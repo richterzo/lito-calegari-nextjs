@@ -565,11 +565,17 @@ const HomePage = () => {
 
             <div className="flex items-center justify-center">
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-16 h-16 bg-[#C6D92E] rounded-full flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
               >
-                <span className="text-black text-2xl font-bold">LC</span>
+                <Image
+                  src="/images/Logo-LitoCalegari.png"
+                  alt="Lito Calegari Logo"
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto filter brightness-0 invert"
+                />
               </motion.div>
             </div>
           </div>

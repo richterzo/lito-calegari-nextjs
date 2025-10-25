@@ -471,11 +471,17 @@ const ProgettazioneGraficaPage = () => {
 
             <div className="flex items-center justify-center md:justify-end">
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full flex items-center justify-center text-white text-3xl sm:text-5xl font-bold shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
               >
-                LC
+                <Image
+                  src="/images/Logo-LitoCalegari.png"
+                  alt="Lito Calegari Logo"
+                  width={120}
+                  height={32}
+                  className="h-8 w-auto filter brightness-0 invert"
+                />
               </motion.div>
             </div>
           </div>
