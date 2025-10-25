@@ -236,10 +236,30 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight"
+              className="font-bold mb-8 leading-tight"
+              style={{
+                fontSize: 'clamp(2.5rem, 8vw, 7rem)',
+                background: 'linear-gradient(135deg, #000000 0%, #434343 50%, #000000 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
             >
               Studio grafico e<br />
-              stampa
+              <motion.span
+                initial={{ backgroundPosition: '0% 50%' }}
+                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  background: 'linear-gradient(90deg, #000000, #C6D92E, #000000)',
+                  backgroundSize: '200% auto',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                stampa
+              </motion.span>
             </motion.h1>
 
             <motion.p

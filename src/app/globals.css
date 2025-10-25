@@ -74,28 +74,22 @@ section {
   background-clip: text;
 }
 
-/* Smooth Cursor */
+/* Enhanced Cursor (keep default but with transitions) */
 * {
-  cursor: none;
+  cursor: default;
+  transition: cursor 0.2s ease;
 }
 
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #C6D92E;
-  pointer-events: none;
-  z-index: 10000;
-  mix-blend-mode: difference;
-  transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
+a, button {
+  cursor: pointer;
 }
 
-.custom-cursor.hover {
-  width: 60px;
-  height: 60px;
-  background: rgba(198, 217, 46, 0.3);
-  border: 2px solid #C6D92E;
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
 }
 
 /* Premium Shadows */
