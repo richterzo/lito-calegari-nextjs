@@ -242,12 +242,15 @@ const StampaOffsetPage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
                 <Image
                   src="/images/scraped/stampa-offset_Artboard-56-scaled.jpg"
                   alt="Stampa Offset"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={false}
+                  quality={85}
                 />
               </div>
             </motion.div>

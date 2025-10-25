@@ -113,56 +113,133 @@ const ContattiPage = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Perfect */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-200 shadow-lg"
-          >
-            <div className="px-6 py-4 space-y-4">
-              <Link
-                href="/"
-                className="block text-sm font-medium text-gray-600 hover:text-[#C6D92E] transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-gray-900">Servizi</p>
-                <Link
-                  href="/progettazione-grafica"
-                  className="block pl-4 text-sm text-gray-600 hover:text-[#C6D92E] transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Progettazione Grafica
-                </Link>
-                <Link
-                  href="/stampa-digitale"
-                  className="block pl-4 text-sm text-gray-600 hover:text-[#C6D92E] transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Stampa Digitale
-                </Link>
-                <Link
-                  href="/stampa-offset"
-                  className="block pl-4 text-sm text-gray-600 hover:text-[#C6D92E] transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Stampa Offset
-                </Link>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            <motion.div
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0 }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 md:hidden"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gray-50">
+                  <Image
+                    src="/images/Logo-LitoCalegari.png"
+                    alt="Lito Calegari Logo"
+                    width={120}
+                    height={32}
+                    className="h-7 sm:h-8 w-auto"
+                  />
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-200"
+                  >
+                    <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </motion.button>
+                </div>
+
+                <div className="flex-1 px-4 sm:px-6 py-6 sm:py-8 space-y-6 overflow-y-auto">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <Link
+                      href="/"
+                      className="block text-lg font-semibold text-gray-900 hover:text-[#C6D92E] transition-colors py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Home
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="space-y-4"
+                  >
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Servizi
+                    </p>
+                    <div className="space-y-2">
+                      <Link
+                        href="/progettazione-grafica"
+                        className="block text-base text-gray-700 hover:text-[#C6D92E] transition-colors py-2 pl-4 border-l-2 border-transparent hover:border-[#C6D92E] hover:bg-gray-50 rounded-r-lg"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Progettazione Grafica
+                      </Link>
+                      <Link
+                        href="/stampa-digitale"
+                        className="block text-base text-gray-700 hover:text-[#C6D92E] transition-colors py-2 pl-4 border-l-2 border-transparent hover:border-[#C6D92E] hover:bg-gray-50 rounded-r-lg"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Stampa Digitale
+                      </Link>
+                      <Link
+                        href="/stampa-offset"
+                        className="block text-base text-gray-700 hover:text-[#C6D92E] transition-colors py-2 pl-4 border-l-2 border-transparent hover:border-[#C6D92E] hover:bg-gray-50 rounded-r-lg"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Stampa Offset
+                      </Link>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <Link
+                      href="/contatti"
+                      className="block text-lg font-semibold text-[#C6D92E] py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Contatti
+                    </Link>
+                  </motion.div>
+                </div>
+
+                <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-[#C6D92E] text-black px-6 py-3 rounded-full text-base font-semibold hover:bg-[#B8C526] transition-colors shadow-lg"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    CONTATTACI
+                  </motion.button>
+
+                  <div className="mt-4 text-center text-xs sm:text-sm text-gray-500 space-y-1">
+                    <p>Via del Greto 5, 40132 Bologna</p>
+                    <p>
+                      <a
+                        href="tel:+39051563660"
+                        className="hover:text-[#C6D92E] transition-colors"
+                      >
+                        051 563660
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <Link
-                href="/contatti"
-                className="block text-sm font-medium text-[#C6D92E] font-semibold"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contatti
-              </Link>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
