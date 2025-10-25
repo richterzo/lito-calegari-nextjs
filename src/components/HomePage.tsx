@@ -66,10 +66,7 @@ const HomePage = () => {
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="min-h-screen bg-white"
-    >
+    <div ref={containerRef} className="min-h-screen bg-white">
       {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C6D92E] to-[#B8C526] origin-left z-[100]"
@@ -388,16 +385,22 @@ const HomePage = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="text-center group"
+                initial={{ opacity: 0, y: 50, rotateX: 45 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2, type: 'spring' }}
+                viewport={{ once: true, margin: '-100px' }}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="text-center group perspective-1000"
               >
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ 
+                    scale: 1.1, 
+                    rotate: 5,
+                    z: 50,
+                    transition: { duration: 0.3 }
+                  }}
                   className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full mx-auto mb-6 sm:mb-8 flex items-center justify-center text-white text-xl sm:text-3xl font-bold shadow-2xl cursor-pointer"
+                  style={{ transformStyle: 'preserve-3d' }}
                 >
                   {item.number}
                 </motion.div>

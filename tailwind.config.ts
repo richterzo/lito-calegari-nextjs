@@ -179,6 +179,11 @@ const config: Config = {
       backdropBlur: {
         xs: '2px',
       },
+      perspective: {
+        '500': '500px',
+        '1000': '1000px',
+        '2000': '2000px',
+      },
       spacing: {
         '18': '4.5rem',
         '88': '22rem',
