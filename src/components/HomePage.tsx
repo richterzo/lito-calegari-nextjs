@@ -556,8 +556,8 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Offset <span className="text-gray-400">o</span> Digitale
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+                Offset <span className="text-[#C6D92E]">o</span> Digitale
               </h2>
               <h3 className="text-2xl font-bold text-[#C6D92E] mb-6">
                 Quale stampa scegliere?
@@ -569,8 +569,8 @@ const HomePage = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <h4 className="font-bold mb-2">Offset</h4>
-                  <p className="text-gray-600">
+                  <h4 className="font-bold mb-2 text-black">Offset</h4>
+                  <p className="text-gray-700 leading-relaxed">
                     Particolarmente adatta per tirature medio/alte con formati
                     fino ad un massimale di (50×70 cm) consente una maggiore
                     varietà di scelta per quanto riguarda la gamma di colori
@@ -583,8 +583,8 @@ const HomePage = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <h4 className="font-bold mb-2">Digitale</h4>
-                  <p className="text-gray-600">
+                  <h4 className="font-bold mb-2 text-black">Digitale</h4>
+                  <p className="text-gray-700 leading-relaxed">
                     Ideale per tirature limitate e stampe personalizzate con
                     tempi di consegna rapidi.
                   </p>
@@ -592,17 +592,34 @@ const HomePage = () => {
               </div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="h-96 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-2xl shadow-2xl relative overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              className="h-96 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-2xl shadow-2xl relative overflow-hidden cursor-pointer"
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                className="absolute inset-0"
+                animate={{
+                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                style={{
+                  background:
+                    'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)',
+                  backgroundSize: '200% 200%',
+                }}
               />
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <div className="text-white text-6xl font-bold opacity-20">
+                  STAMPA
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -672,10 +689,30 @@ const HomePage = () => {
           </motion.h2>
           <div className="flex justify-center items-center gap-12 md:gap-16 flex-wrap">
             {[
-              { name: 'Ricoh', src: '/images/Ricoh_logo_2005.svg.png', width: 120, height: 40 },
-              { name: 'Mastercard', src: '/images/9439727-scaled-254x254.jpg', width: 80, height: 80 },
-              { name: 'Adobe', src: '/images/Adobe_Corporate_Logo.png', width: 100, height: 40 },
-              { name: '3M', src: '/images/9439678-scaled-254x254.jpg', width: 80, height: 80 },
+              {
+                name: 'Ricoh',
+                src: '/images/Ricoh_logo_2005.svg.png',
+                width: 120,
+                height: 40,
+              },
+              {
+                name: 'Mastercard',
+                src: '/images/9439727-scaled-254x254.jpg',
+                width: 80,
+                height: 80,
+              },
+              {
+                name: 'Adobe',
+                src: '/images/Adobe_Corporate_Logo.png',
+                width: 100,
+                height: 40,
+              },
+              {
+                name: '3M',
+                src: '/images/9439678-scaled-254x254.jpg',
+                width: 80,
+                height: 80,
+              },
             ].map((logo, index) => (
               <motion.div
                 key={logo.name}
@@ -753,7 +790,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
 
       {/* FOOTER */}
       <footer className="bg-black text-white py-16">
