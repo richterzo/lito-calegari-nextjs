@@ -68,7 +68,7 @@ section {
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #C6D92E 0%, #B8C526 50%, #9FA821 100%);
+  background: linear-gradient(135deg, #c6d92e 0%, #b8c526 50%, #9fa821 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,7 +80,8 @@ section {
   transition: cursor 0.2s ease;
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }
 

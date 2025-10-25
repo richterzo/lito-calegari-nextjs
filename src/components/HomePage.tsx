@@ -3,7 +3,16 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, Menu, X, ChevronLeft, ChevronRight, ArrowRight, Sparkles, Zap } from 'lucide-react'
+import {
+  ChevronDown,
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  Sparkles,
+  Zap,
+} from 'lucide-react'
 import {
   motion,
   useScroll,
@@ -239,7 +248,8 @@ const HomePage = () => {
               className="font-bold mb-8 leading-tight"
               style={{
                 fontSize: 'clamp(2.5rem, 8vw, 7rem)',
-                background: 'linear-gradient(135deg, #000000 0%, #434343 50%, #000000 100%)',
+                background:
+                  'linear-gradient(135deg, #000000 0%, #434343 50%, #000000 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -248,10 +258,13 @@ const HomePage = () => {
               Studio grafico e<br />
               <motion.span
                 initial={{ backgroundPosition: '0% 50%' }}
-                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
                 style={{
-                  background: 'linear-gradient(90deg, #000000, #C6D92E, #000000)',
+                  background:
+                    'linear-gradient(90deg, #000000, #C6D92E, #000000)',
                   backgroundSize: '200% auto',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -345,11 +358,11 @@ const HomePage = () => {
             <motion.div
               initial={{ opacity: 0, y: 80, rotate: -10, scale: 0.8 }}
               whileInView={{ opacity: 1, y: 0, rotate: -4, scale: 1 }}
-              transition={{ 
-                duration: 1.2, 
-                type: 'spring', 
+              transition={{
+                duration: 1.2,
+                type: 'spring',
                 stiffness: 80,
-                delay: 0 
+                delay: 0,
               }}
               viewport={{ once: true, margin: '-100px' }}
               whileHover={{
@@ -357,10 +370,16 @@ const HomePage = () => {
                 rotate: 0,
                 y: -15,
                 z: 50,
-                transition: { duration: 0.5, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) },
+                transition: {
+                  duration: 0.5,
+                  ease: cubicBezier(0.25, 0.46, 0.45, 0.94),
+                },
               }}
               className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg transform-3d cursor-pointer"
-              style={{ transformOrigin: 'center center', transformStyle: 'preserve-3d' }}
+              style={{
+                transformOrigin: 'center center',
+                transformStyle: 'preserve-3d',
+              }}
             >
               <Image
                 src="/images/Artboard-1-1-scaled.png"
@@ -379,8 +398,12 @@ const HomePage = () => {
                   whileHover={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <h3 className="text-white font-bold text-xl mb-2">Biglietti da Visita</h3>
-                  <p className="text-white/80 text-sm">Design personalizzato e stampa di qualità</p>
+                  <h3 className="text-white font-bold text-xl mb-2">
+                    Biglietti da Visita
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    Design personalizzato e stampa di qualità
+                  </p>
                 </motion.div>
               </motion.div>
               {/* Shine effect */}
@@ -657,67 +680,204 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* SERVICES SECTION - With stagger animations */}
-      <section className="min-h-screen flex items-center justify-center py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* SERVICES SECTION - Exact copy from screenshot */}
+      <section className="min-h-screen flex items-center justify-center py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-12"
+            className="text-5xl md:text-6xl font-bold mb-20"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}
           >
             I nostri servizi
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: 'Grafica',
-                description:
-                  'Diamo forma alle tue idee con creatività e competenza.',
-                icon: '🎨',
-              },
-              {
-                title: 'Stampa',
-                description:
-                  'Macchinari di ultima generazione e materiali certificati FSC®.',
-                icon: '🖨️',
-              },
-              {
-                title: 'Finitura',
-                description:
-                  'Rendiamo ogni lavoro unico grazie a finiture di pregio.',
-                icon: '✨',
-              },
-              {
-                title: 'Extra',
-                description:
-                  'Superiamo i limiti con supporti innovativi e di prestigio.',
-                icon: '🚀',
-              },
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -10,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                }}
-                className="bg-gray-50 p-8 rounded-2xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50 transition-all duration-300 cursor-pointer border border-transparent hover:border-[#C6D92E]/20"
-              >
+
+          {/* Navigation Arrows */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
+            <motion.button
+              whileHover={{ scale: 1.1, x: -5 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-premium hover:bg-[#C6D92E] hover:text-black transition-all duration-300"
+            >
+              <ChevronLeft size={28} />
+            </motion.button>
+          </div>
+
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
+            <motion.button
+              whileHover={{ scale: 1.1, x: 5 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-premium hover:bg-[#C6D92E] hover:text-black transition-all duration-300"
+            >
+              <ChevronRight size={28} />
+            </motion.button>
+          </div>
+
+          {/* Services Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Grafica Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative bg-white border-2 border-black p-10 rounded-none cursor-pointer overflow-hidden"
+            >
+              {/* Icon with yellow circle background */}
+              <div className="relative mb-8 flex justify-end">
                 <motion.div
-                  className="text-4xl mb-4"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileHover={{ scale: 1.1, rotate: 10 }}
+                  className="relative"
                 >
-                  {service.icon}
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-20 h-20">
+                    {/* Computer/Design Icon */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect x="10" y="20" width="60" height="45" fill="none" stroke="black" strokeWidth="2" />
+                      <rect x="15" y="25" width="50" height="35" fill="white" stroke="black" strokeWidth="1.5" />
+                      <path d="M 20 30 Q 30 40, 40 30" fill="none" stroke="black" strokeWidth="2" />
+                      <circle cx="55" cy="35" r="3" fill="black" />
+                      <rect x="30" y="65" width="20" height="3" fill="black" />
+                      <rect x="20" y="68" width="40" height="2" fill="black" />
+                      <rect x="72" y="30" width="15" height="20" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <line x1="75" y1="33" x2="84" y2="33" stroke="black" strokeWidth="1" />
+                      <line x1="75" y1="37" x2="84" y2="37" stroke="black" strokeWidth="1" />
+                      <line x1="75" y1="41" x2="84" y2="41" stroke="black" strokeWidth="1" />
+                    </svg>
+                  </div>
                 </motion.div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </motion.div>
-            ))}
+              </div>
+
+              <h3 className="text-3xl font-bold mb-6">Grafica</h3>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                Diamo forma alle tue idee con creatività e competenza,
+                realizzando progetti grafici dal forte impatto visivo,
+                accompagnandoti in ogni fase della creazione.
+              </p>
+
+              {/* Hover border animation */}
+              <motion.div
+                className="absolute inset-0 border-4 border-[#C6D92E]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+
+            {/* Stampa Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                type: 'spring',
+                stiffness: 100,
+              }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative bg-white border-2 border-black p-10 rounded-none cursor-pointer overflow-hidden"
+            >
+              {/* Icon with yellow circle background */}
+              <div className="relative mb-8 flex justify-end">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: -10 }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-20 h-20">
+                    {/* Printer Icon */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect x="25" y="15" width="35" height="20" fill="white" stroke="black" strokeWidth="2" />
+                      <rect x="20" y="35" width="45" height="30" fill="white" stroke="black" strokeWidth="2" />
+                      <circle cx="28" cy="42" r="2" fill="black" />
+                      <rect x="28" y="50" width="30" height="25" fill="white" stroke="black" strokeWidth="2" />
+                      <line x1="32" y1="57" x2="54" y2="57" stroke="black" strokeWidth="1.5" />
+                      <line x1="32" y1="62" x2="54" y2="62" stroke="black" strokeWidth="1.5" />
+                      <line x1="32" y1="67" x2="48" y2="67" stroke="black" strokeWidth="1.5" />
+                      <circle cx="68" cy="45" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <circle cx="68" cy="45" r="3" fill="black" />
+                    </svg>
+                  </div>
+                </motion.div>
+              </div>
+
+              <h3 className="text-3xl font-bold mb-6">Stampa</h3>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                Macchinari di ultima generazione e materiali certificati FSC® ci
+                consentono di offrirti stampe rapide, di qualità eccellente e
+                rispettose dell&apos;ambiente.
+              </p>
+
+              {/* Hover border animation */}
+              <motion.div
+                className="absolute inset-0 border-4 border-[#C6D92E]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+
+            {/* Finitura Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                type: 'spring',
+                stiffness: 100,
+              }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative bg-white border-2 border-black p-10 rounded-none cursor-pointer overflow-hidden"
+            >
+              {/* Icon with yellow circle background */}
+              <div className="relative mb-8 flex justify-end">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 10 }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-20 h-20">
+                    {/* Diamond/Gem Icon */}
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <circle cx="50" cy="40" r="25" fill="none" stroke="black" strokeWidth="2" strokeDasharray="4 4" />
+                      <path
+                        d="M 35 30 L 45 20 L 55 20 L 65 30 L 60 50 L 50 60 L 40 50 Z"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <line x1="45" y1="20" x2="40" y2="50" stroke="black" strokeWidth="1.5" />
+                      <line x1="55" y1="20" x2="60" y2="50" stroke="black" strokeWidth="1.5" />
+                      <line x1="35" y1="30" x2="50" y2="60" stroke="black" strokeWidth="1.5" />
+                      <line x1="65" y1="30" x2="50" y2="60" stroke="black" strokeWidth="1.5" />
+                      <circle cx="72" cy="28" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <path d="M 68 28 L 70 30 L 76 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                </motion.div>
+              </div>
+
+              <h3 className="text-3xl font-bold mb-6">Finitura</h3>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                Rendiamo ogni lavoro unico grazie a finiture di pregio e cura
+                dei dettagli, per dare un tocco distintivo e valorizzare al
+                massimo la tua comunicazione.
+              </p>
+
+              {/* Hover border animation */}
+              <motion.div
+                className="absolute inset-0 border-4 border-[#C6D92E]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
           </div>
         </div>
       </section>
