@@ -646,7 +646,6 @@ const HomePage = () => {
         </div>
       </section>
 
-
       {/* COSA PUOI REALIZZARE */}
       <section className="py-16 sm:py-24 bg-gray-50 text-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -669,24 +668,24 @@ const HomePage = () => {
             {[
               {
                 title: 'Cataloghi',
-                image: '/images/banner_cat_magazines_01_d.jpg'
+                image: '/images/banner_cat_magazines_01_d.jpg',
               },
               {
                 title: 'Biglietti da visita',
-                image: '/images/Artboard-1-1-scaled.png'
+                image: '/images/Artboard-1-1-scaled.png',
               },
               {
                 title: 'Adesivi',
-                image: '/images/Artboard-12-scaled.png'
+                image: '/images/Artboard-12-scaled.png',
               },
               {
                 title: 'Flyer',
-                image: '/images/Artboard-13-scaled.png'
+                image: '/images/Artboard-13-scaled.png',
               },
               {
                 title: 'Progettazione grafica',
-                image: '/images/Artboard-16-scaled.png'
-              }
+                image: '/images/Artboard-16-scaled.png',
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
@@ -905,15 +904,75 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12">
               I nostri orari
             </h2>
-            <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
-                Contatti
-              </h3>
-              <p className="text-lg text-gray-600 mb-4">Via del Greto 5</p>
-              <p className="text-lg text-gray-600">40132 Bologna</p>
+            
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+              {/* Orari */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
+                  Orari di apertura
+                </h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">Lunedì - Venerdì</span>
+                    <span className="text-gray-600">8:00 - 12:00 | 13:00 - 17:00</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">Sabato</span>
+                    <span className="text-gray-600">Chiuso</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">Domenica</span>
+                    <span className="text-gray-600">Chiuso</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Contatti */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
+                  Contatti
+                </h3>
+                <div className="space-y-4 text-left">
+                  <div>
+                    <p className="text-lg font-medium mb-2">Indirizzo</p>
+                    <p className="text-gray-600">Via del Greto 5</p>
+                    <p className="text-gray-600">40132 Bologna</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-medium mb-2">Telefono</p>
+                    <a 
+                      href="tel:051563660" 
+                      className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
+                    >
+                      051 563660
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-lg font-medium mb-2">Email</p>
+                    <a 
+                      href="mailto:info@litocalegari.it" 
+                      className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
+                    >
+                      info@litocalegari.it
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -926,8 +985,8 @@ const HomePage = () => {
             <div>
               <h3 className="text-xl font-semibold mb-6">I nostri orari</h3>
               <div className="space-y-2 text-gray-300">
-                <p>Lunedì - Venerdì: 9:00 - 18:00</p>
-                <p>Sabato: 9:00 - 13:00</p>
+                <p>Lunedì - Venerdì: 8:00 - 12:00 | 13:00 - 17:00</p>
+                <p>Sabato: Chiuso</p>
                 <p>Domenica: Chiuso</p>
               </div>
             </div>
@@ -937,8 +996,22 @@ const HomePage = () => {
               <div className="space-y-2 text-gray-300">
                 <p>Via del Greto 5</p>
                 <p>40132 Bologna</p>
-                <p>Tel: +39 051 1234567</p>
-                <p>Email: info@litocalegari.it</p>
+                <p>
+                  <a
+                    href="tel:051563660"
+                    className="hover:text-[#C6D92E] transition-colors"
+                  >
+                    Tel: 051 563660
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:info@litocalegari.it"
+                    className="hover:text-[#C6D92E] transition-colors"
+                  >
+                    Email: info@litocalegari.it
+                  </a>
+                </p>
               </div>
             </div>
 
