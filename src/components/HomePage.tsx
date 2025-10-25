@@ -1058,10 +1058,38 @@ const HomePage = () => {
                         stroke="black"
                         strokeWidth="2"
                       />
-                      <circle cx="50" cy="50" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
-                      <circle cx="78" cy="25" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
-                      <line x1="76" y1="25" x2="80" y2="25" stroke="black" strokeWidth="2" />
-                      <line x1="78" y1="23" x2="78" y2="27" stroke="black" strokeWidth="2" />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="8"
+                        fill="#C6D92E"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <circle
+                        cx="78"
+                        cy="25"
+                        r="8"
+                        fill="#C6D92E"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="76"
+                        y1="25"
+                        x2="80"
+                        y2="25"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="78"
+                        y1="23"
+                        x2="78"
+                        y2="27"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
                     </svg>
                   </div>
                 </motion.div>
