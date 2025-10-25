@@ -66,14 +66,9 @@ const HomePage = () => {
   }
 
   return (
-    <div 
-      ref={containerRef} 
-      className="min-h-screen bg-white scroll-smooth"
-      style={{
-        scrollSnapType: 'y mandatory',
-        overflowY: 'scroll',
-        height: '100vh',
-      }}
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-white"
     >
       {/* Scroll Progress Indicator */}
       <motion.div
@@ -200,10 +195,7 @@ const HomePage = () => {
       </motion.header>
 
       {/* HERO SECTION - With parallax from old version */}
-      <section 
-        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
-        style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}
-      >
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
         {/* Background blur effects */}
         <motion.div
           style={{ y: springY, opacity }}
@@ -248,7 +240,7 @@ const HomePage = () => {
               offriamo soluzioni creative e su misura per valorizzare la tua
               comunicazione
             </motion.p>
-            
+
             {/* Scroll Indicator */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -272,13 +264,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* GALLERY + DESCRIPTION + VALUES - Combined Section */}
-      <section 
-        className="min-h-screen flex flex-col justify-center py-16 bg-white"
-        style={{ scrollSnapAlign: 'start' }}
-      >
-        {/* IMAGE GALLERY - Enhanced with animations */}
-        <div className="py-8">
+      {/* IMAGE GALLERY - Enhanced with animations */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
@@ -365,7 +352,7 @@ const HomePage = () => {
       </section>
 
       {/* VALUES SECTION - Enhanced with better animations */}
-      <section className="py-20 bg-black text-white relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-black text-white relative overflow-hidden">
         <motion.div
           className="absolute inset-0 opacity-10"
           initial={{ scale: 0.8, opacity: 0 }}
@@ -427,7 +414,7 @@ const HomePage = () => {
       </section>
 
       {/* SERVICES SECTION - With stagger animations */}
-      <section className="py-16 bg-white">
+      <section className="min-h-screen flex items-center justify-center py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -471,7 +458,10 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, shadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                }}
                 className="bg-gray-50 p-8 rounded-2xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50 transition-all duration-300 cursor-pointer border border-transparent hover:border-[#C6D92E]/20"
               >
                 <motion.div
@@ -489,7 +479,7 @@ const HomePage = () => {
       </section>
 
       {/* COSA PUOI REALIZZARE - Enhanced */}
-      <section className="py-16 bg-gray-50">
+      <section className="min-h-screen flex items-center justify-center py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -620,7 +610,7 @@ const HomePage = () => {
       </section>
 
       {/* OFFSET O DIGITALE */}
-      <section className="py-16 bg-gray-50">
+      <section className="min-h-screen flex items-center justify-center py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -703,7 +693,7 @@ const HomePage = () => {
       </section>
 
       {/* FILOSOFIA - Enhanced with parallax */}
-      <section className="py-20 bg-black text-white relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-black text-white relative overflow-hidden">
         <motion.div
           className="absolute inset-0 opacity-20"
           style={{ y: springY }}
@@ -753,7 +743,7 @@ const HomePage = () => {
       </section>
 
       {/* PARTNER LOGOS */}
-      <section className="py-16 bg-gray-50">
+      <section className="min-h-screen flex items-center justify-center py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -814,7 +804,7 @@ const HomePage = () => {
       </section>
 
       {/* TESTIMONIALS - Enhanced carousel */}
-      <section className="py-16 bg-white">
+      <section className="min-h-screen flex items-center justify-center py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-[#C6D92E] text-sm text-center mb-2 font-semibold tracking-wider">
             DA GOOGLE
