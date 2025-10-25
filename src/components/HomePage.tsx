@@ -614,7 +614,11 @@ const HomePage = () => {
               <motion.div
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               >
                 <div className="text-white text-6xl font-bold opacity-20">
                   STAMPA
@@ -696,6 +700,12 @@ const HomePage = () => {
                 height: 40,
               },
               {
+                name: 'Roland',
+                src: '/images/Roland_Digital_Group_logo.svg.png',
+                width: 120,
+                height: 40,
+              },
+              {
                 name: 'Mastercard',
                 src: '/images/9439727-scaled-254x254.jpg',
                 width: 80,
@@ -709,9 +719,9 @@ const HomePage = () => {
               },
               {
                 name: '3M',
-                src: '/images/9439678-scaled-254x254.jpg',
+                src: '/images/3M_Logo.svg-1.png',
                 width: 80,
-                height: 80,
+                height: 40,
               },
             ].map((logo, index) => (
               <motion.div
