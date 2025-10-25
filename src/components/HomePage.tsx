@@ -191,69 +191,82 @@ const HomePage = () => {
         </AnimatePresence>
       </motion.header>
 
-      {/* HERO SECTION - With parallax from old version */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
-        {/* Background blur effects */}
+      {/* HERO SECTION - Exact copy from screenshot */}
+      <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20">
+        {/* Giant background text "STAMPA" */}
         <motion.div
-          style={{ y: springY, opacity }}
-          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ zIndex: 0 }}
         >
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#C6D92E]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-48 h-48 bg-[#B8C526]/10 rounded-full blur-3xl" />
+          <h2 
+            className="text-[20vw] md:text-[25vw] font-black text-gray-100 leading-none"
+            style={{ 
+              letterSpacing: '-0.05em',
+              WebkitTextStroke: '2px rgba(0,0,0,0.02)'
+            }}
+          >
+            STAMPA
+          </h2>
         </motion.div>
 
+        {/* Main content */}
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-sm text-gray-500 mb-4 tracking-wider"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-xs md:text-sm text-gray-500 mb-6 tracking-[0.3em] uppercase font-medium"
             >
-              DOVE LE TUE IDEE PRENDONO FORMA
+              Dove le tue idee prendono forma
             </motion.p>
+            
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-black mb-6"
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight"
             >
-              Studio grafico e
-              <br />
-              stampa
+              Studio grafico e<br />stampa
             </motion.h1>
+            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Dalla progettazione grafica alla stampa di alta qualità,
-              <br />
-              offriamo soluzioni creative e su misura per valorizzare la tua
-              comunicazione
+              Dalla progettazione grafica alla stampa di alta qualità, offriamo soluzioni creative e su misura per valorizzare la tua comunicazione
             </motion.p>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Animated */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+              transition={{ delay: 1.2, duration: 1 }}
+              className="mt-16"
             >
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-6 h-10 border-2 border-[#C6D92E] rounded-full flex justify-center p-2"
+                animate={{ 
+                  y: [0, 12, 0],
+                  opacity: [1, 0.5, 1]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+                className="w-6 h-10 border-2 border-gray-400 rounded-full mx-auto flex justify-center p-2"
               >
                 <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-1.5 h-1.5 bg-[#C6D92E] rounded-full"
+                  className="w-1.5 h-1.5 bg-gray-400 rounded-full"
                 />
               </motion.div>
             </motion.div>
@@ -261,102 +274,202 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* IMAGE GALLERY - Enhanced with animations */}
-      <section className="py-16 bg-white">
+      {/* IMAGE GALLERY - Angled layout from screenshot */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              '/images/Artboard-1-1-scaled.png',
-              '/images/banner_cat_magazines_01_d.jpg',
-              '/images/Artboard-13-scaled.png',
-              '/images/Artboard-16-scaled.png',
-            ].map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.8, rotateY: -15 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.1,
-                  type: 'spring',
-                  stiffness: 100
-                }}
-                viewport={{ once: true, margin: '-50px' }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -10,
-                  rotateY: 5,
-                  rotateX: 5,
-                  z: 30,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative h-64 rounded-2xl overflow-hidden shadow-lg transform-3d"
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <Image
-                  src={img}
-                  alt={`Gallery ${index + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500"
-                />
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+            {/* Image 1 - Rotated left */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: -8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: -4 }}
+              transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: -2,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <Image
+                src="/images/Artboard-1-1-scaled.png"
+                alt="Portfolio 1"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Image 2 - Center (larger) */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1, type: 'spring' }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -15,
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                transition: { duration: 0.3 }
+              }}
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl col-span-1"
+            >
+              <Image
+                src="/images/banner_cat_magazines_01_d.jpg"
+                alt="Portfolio 2"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Image 3 - Rotated right */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: 8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 4 }}
+              transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 100 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: 2,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <Image
+                src="/images/Artboard-13-scaled.png"
+                alt="Portfolio 3"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Image 4 - Rotated left */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: -8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+              transition={{ duration: 0.8, delay: 0.3, type: 'spring', stiffness: 100 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: -1,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <Image
+                src="/images/Artboard-16-scaled.png"
+                alt="Portfolio 4"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Image 5 - Rotated right */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: 8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 3 }}
+              transition={{ duration: 0.8, delay: 0.4, type: 'spring', stiffness: 100 }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: 1,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <Image
+                src="/images/homepage_4-2.webp"
+                alt="Portfolio 5"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* DESCRIPTION SECTION - With hover effects */}
-      <section className="py-16 bg-gray-50 relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#C6D92E]/5 to-transparent pointer-events-none"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        />
+      {/* DESCRIPTION SECTION - Exact from screenshot */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-700 leading-relaxed"
+            className="text-xl md:text-3xl text-black leading-relaxed font-normal"
           >
-            Offriamo un'ampia gamma di soluzioni di stampa, dai{' '}
+            Offriamo un'ampia gamma di soluzioni di{' '}
             <motion.span
-              className="text-[#C6D92E] font-semibold cursor-pointer relative"
-              whileHover={{ scale: 1.05 }}
+              initial={{ backgroundSize: '0% 100%' }}
+              whileInView={{ backgroundSize: '100% 100%' }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="font-semibold relative inline-block"
+              style={{
+                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '0 85%',
+                backgroundSize: '0% 40%',
+              }}
+            >
+              stampa
+            </motion.span>
+            , dai{' '}
+            <motion.span
+              initial={{ backgroundSize: '0% 100%' }}
+              whileInView={{ backgroundSize: '100% 100%' }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="font-semibold relative inline-block"
+              style={{
+                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '0 85%',
+                backgroundSize: '0% 40%',
+              }}
             >
               biglietti da visita
-              <motion.span
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C6D92E]"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-              />
             </motion.span>{' '}
             ai{' '}
             <motion.span
-              className="text-[#C6D92E] font-semibold cursor-pointer"
-              whileHover={{ scale: 1.05 }}
+              initial={{ backgroundSize: '0% 100%' }}
+              whileInView={{ backgroundSize: '100% 100%' }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="font-semibold relative inline-block"
+              style={{
+                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '0 85%',
+                backgroundSize: '0% 40%',
+              }}
             >
               cataloghi
             </motion.span>
             , dai{' '}
             <motion.span
-              className="text-[#C6D92E] font-semibold cursor-pointer"
-              whileHover={{ scale: 1.05 }}
+              initial={{ backgroundSize: '0% 100%' }}
+              whileInView={{ backgroundSize: '100% 100%' }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              viewport={{ once: true }}
+              className="font-semibold relative inline-block"
+              style={{
+                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '0 85%',
+                backgroundSize: '0% 40%',
+              }}
             >
               banner
             </motion.span>{' '}
-            ai{' '}
-            <motion.span
-              className="text-[#C6D92E] font-semibold cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-            >
-              materiali personalizzati
-            </motion.span>
-            , garantendo qualità, creatività e attenzione ai dettagli in ogni
-            progetto.
+            ai materiali personalizzati, garantendo qualità, creatività e attenzione ai dettagli in ogni progetto.
           </motion.p>
         </div>
       </section>
