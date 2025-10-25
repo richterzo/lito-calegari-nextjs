@@ -716,7 +716,7 @@ const HomePage = () => {
           </div>
 
           {/* Services Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Grafica Card */}
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -736,23 +736,73 @@ const HomePage = () => {
                   <div className="relative z-10 w-20 h-20">
                     {/* Computer/Design Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <rect x="10" y="20" width="60" height="45" fill="none" stroke="black" strokeWidth="2" />
-                      <rect x="15" y="25" width="50" height="35" fill="white" stroke="black" strokeWidth="1.5" />
-                      <path d="M 20 30 Q 30 40, 40 30" fill="none" stroke="black" strokeWidth="2" />
+                      <rect
+                        x="10"
+                        y="20"
+                        width="60"
+                        height="45"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <rect
+                        x="15"
+                        y="25"
+                        width="50"
+                        height="35"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M 20 30 Q 30 40, 40 30"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
                       <circle cx="55" cy="35" r="3" fill="black" />
                       <rect x="30" y="65" width="20" height="3" fill="black" />
                       <rect x="20" y="68" width="40" height="2" fill="black" />
-                      <rect x="72" y="30" width="15" height="20" fill="#C6D92E" stroke="black" strokeWidth="2" />
-                      <line x1="75" y1="33" x2="84" y2="33" stroke="black" strokeWidth="1" />
-                      <line x1="75" y1="37" x2="84" y2="37" stroke="black" strokeWidth="1" />
-                      <line x1="75" y1="41" x2="84" y2="41" stroke="black" strokeWidth="1" />
+                      <rect
+                        x="72"
+                        y="30"
+                        width="15"
+                        height="20"
+                        fill="#C6D92E"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="75"
+                        y1="33"
+                        x2="84"
+                        y2="33"
+                        stroke="black"
+                        strokeWidth="1"
+                      />
+                      <line
+                        x1="75"
+                        y1="37"
+                        x2="84"
+                        y2="37"
+                        stroke="black"
+                        strokeWidth="1"
+                      />
+                      <line
+                        x1="75"
+                        y1="41"
+                        x2="84"
+                        y2="41"
+                        stroke="black"
+                        strokeWidth="1"
+                      />
                     </svg>
                   </div>
                 </motion.div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6">Grafica</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <h3 className="text-3xl font-bold mb-6 text-black">Grafica</h3>
+              <p className="text-black leading-relaxed text-lg">
                 Diamo forma alle tue idee con creatività e competenza,
                 realizzando progetti grafici dal forte impatto visivo,
                 accompagnandoti in ogni fase della creazione.
@@ -791,22 +841,74 @@ const HomePage = () => {
                   <div className="relative z-10 w-20 h-20">
                     {/* Printer Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <rect x="25" y="15" width="35" height="20" fill="white" stroke="black" strokeWidth="2" />
-                      <rect x="20" y="35" width="45" height="30" fill="white" stroke="black" strokeWidth="2" />
+                      <rect
+                        x="25"
+                        y="15"
+                        width="35"
+                        height="20"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <rect
+                        x="20"
+                        y="35"
+                        width="45"
+                        height="30"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
                       <circle cx="28" cy="42" r="2" fill="black" />
-                      <rect x="28" y="50" width="30" height="25" fill="white" stroke="black" strokeWidth="2" />
-                      <line x1="32" y1="57" x2="54" y2="57" stroke="black" strokeWidth="1.5" />
-                      <line x1="32" y1="62" x2="54" y2="62" stroke="black" strokeWidth="1.5" />
-                      <line x1="32" y1="67" x2="48" y2="67" stroke="black" strokeWidth="1.5" />
-                      <circle cx="68" cy="45" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <rect
+                        x="28"
+                        y="50"
+                        width="30"
+                        height="25"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <line
+                        x1="32"
+                        y1="57"
+                        x2="54"
+                        y2="57"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <line
+                        x1="32"
+                        y1="62"
+                        x2="54"
+                        y2="62"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <line
+                        x1="32"
+                        y1="67"
+                        x2="48"
+                        y2="67"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <circle
+                        cx="68"
+                        cy="45"
+                        r="8"
+                        fill="#C6D92E"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
                       <circle cx="68" cy="45" r="3" fill="black" />
                     </svg>
                   </div>
                 </motion.div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6">Stampa</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <h3 className="text-3xl font-bold mb-6 text-black">Stampa</h3>
+              <p className="text-black leading-relaxed text-lg">
                 Macchinari di ultima generazione e materiali certificati FSC® ci
                 consentono di offrirti stampe rapide, di qualità eccellente e
                 rispettose dell&apos;ambiente.
@@ -845,32 +947,133 @@ const HomePage = () => {
                   <div className="relative z-10 w-20 h-20">
                     {/* Diamond/Gem Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <circle cx="50" cy="40" r="25" fill="none" stroke="black" strokeWidth="2" strokeDasharray="4 4" />
+                      <circle
+                        cx="50"
+                        cy="40"
+                        r="25"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2"
+                        strokeDasharray="4 4"
+                      />
                       <path
                         d="M 35 30 L 45 20 L 55 20 L 65 30 L 60 50 L 50 60 L 40 50 Z"
                         fill="white"
                         stroke="black"
                         strokeWidth="2"
                       />
-                      <line x1="45" y1="20" x2="40" y2="50" stroke="black" strokeWidth="1.5" />
-                      <line x1="55" y1="20" x2="60" y2="50" stroke="black" strokeWidth="1.5" />
-                      <line x1="35" y1="30" x2="50" y2="60" stroke="black" strokeWidth="1.5" />
-                      <line x1="65" y1="30" x2="50" y2="60" stroke="black" strokeWidth="1.5" />
-                      <circle cx="72" cy="28" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
-                      <path d="M 68 28 L 70 30 L 76 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                      <line
+                        x1="45"
+                        y1="20"
+                        x2="40"
+                        y2="50"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <line
+                        x1="55"
+                        y1="20"
+                        x2="60"
+                        y2="50"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <line
+                        x1="35"
+                        y1="30"
+                        x2="50"
+                        y2="60"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <line
+                        x1="65"
+                        y1="30"
+                        x2="50"
+                        y2="60"
+                        stroke="black"
+                        strokeWidth="1.5"
+                      />
+                      <circle
+                        cx="72"
+                        cy="28"
+                        r="8"
+                        fill="#C6D92E"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M 68 28 L 70 30 L 76 24"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </div>
                 </motion.div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6">Finitura</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <h3 className="text-3xl font-bold mb-6 text-black">Finitura</h3>
+              <p className="text-black leading-relaxed text-lg">
                 Rendiamo ogni lavoro unico grazie a finiture di pregio e cura
                 dei dettagli, per dare un tocco distintivo e valorizzare al
                 massimo la tua comunicazione.
               </p>
 
               {/* Hover border animation */}
+              <motion.div
+                className="absolute inset-0 border-4 border-[#C6D92E]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+
+            {/* Extra Card - ADDED */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: 'spring',
+                stiffness: 100,
+              }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative bg-white border-2 border-black p-10 rounded-none cursor-pointer overflow-hidden"
+            >
+              <div className="relative mb-8 flex justify-end">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: -10 }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-20 h-20">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <path
+                        d="M 50 20 L 55 40 L 75 40 L 60 52 L 65 72 L 50 60 L 35 72 L 40 52 L 25 40 L 45 40 Z"
+                        fill="white"
+                        stroke="black"
+                        strokeWidth="2"
+                      />
+                      <circle cx="50" cy="50" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <circle cx="78" cy="25" r="8" fill="#C6D92E" stroke="black" strokeWidth="2" />
+                      <line x1="76" y1="25" x2="80" y2="25" stroke="black" strokeWidth="2" />
+                      <line x1="78" y1="23" x2="78" y2="27" stroke="black" strokeWidth="2" />
+                    </svg>
+                  </div>
+                </motion.div>
+              </div>
+
+              <h3 className="text-3xl font-bold mb-6 text-black">Extra</h3>
+              <p className="text-black leading-relaxed text-lg">
+                Superiamo i limiti della carta con stampe su supporti innovativi
+                e di prestigio, offrendo nuove possibilità creative per
+                valorizzare la tua comunicazione.
+              </p>
+
               <motion.div
                 className="absolute inset-0 border-4 border-[#C6D92E]"
                 initial={{ opacity: 0, scale: 0.9 }}
