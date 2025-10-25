@@ -3,13 +3,7 @@
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  ChevronDown,
-  Menu,
-  X,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react'
+import { ChevronDown, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import {
   motion,
   useScroll,
@@ -31,7 +25,7 @@ const HomePage = () => {
   // Parallax effects
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.8])
-  
+
   const springY = useSpring(y, {
     stiffness: 100,
     damping: 30,
@@ -665,7 +659,7 @@ const HomePage = () => {
       </section>
 
       {/* PARTNER LOGOS */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -676,18 +670,29 @@ const HomePage = () => {
           >
             Il meglio per i tuoi progetti
           </motion.h2>
-          <div className="flex justify-center items-center gap-16 flex-wrap">
-            {['RICOH', 'mastercard', 'Adobe', '3M'].map((logo, index) => (
+          <div className="flex justify-center items-center gap-12 md:gap-16 flex-wrap">
+            {[
+              { name: 'Ricoh', src: '/images/Ricoh_logo_2005.svg.png', width: 120, height: 40 },
+              { name: 'Mastercard', src: '/images/9439727-scaled-254x254.jpg', width: 80, height: 80 },
+              { name: 'Adobe', src: '/images/Adobe_Corporate_Logo.png', width: 100, height: 40 },
+              { name: '3M', src: '/images/9439678-scaled-254x254.jpg', width: 80, height: 80 },
+            ].map((logo, index) => (
               <motion.div
-                key={logo}
+                key={logo.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="text-2xl font-bold text-gray-400 hover:text-gray-700 transition-colors cursor-pointer"
+                className="grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer"
               >
-                {logo}
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  height={logo.height}
+                  className="object-contain"
+                />
               </motion.div>
             ))}
           </div>
@@ -695,7 +700,7 @@ const HomePage = () => {
       </section>
 
       {/* TESTIMONIALS - Enhanced carousel */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-[#C6D92E] text-sm text-center mb-2 font-semibold tracking-wider">
             DA GOOGLE
@@ -717,7 +722,7 @@ const HomePage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-8 rounded-2xl shadow-lg"
+                className="bg-gray-50 p-8 rounded-2xl shadow-lg"
               >
                 <p className="text-gray-700 mb-6 italic text-lg leading-relaxed">
                   "{testimonials[currentTestimonial].text}"
@@ -749,91 +754,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ORARI E CONTATTI */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">
-              I nostri orari
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-gray-50 p-8 rounded-2xl shadow-lg"
-              >
-                <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
-                  Orari di apertura
-                </h3>
-                <div className="space-y-3 text-left">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">Lunedì - Venerdì</span>
-                    <span className="text-gray-600">
-                      8:00 - 12:00 | 13:00 - 17:00
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">Sabato</span>
-                    <span className="text-gray-600">Chiuso</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium">Domenica</span>
-                    <span className="text-gray-600">Chiuso</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-gray-50 p-8 rounded-2xl shadow-lg"
-              >
-                <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
-                  Contatti
-                </h3>
-                <div className="space-y-4 text-left">
-                  <div>
-                    <p className="text-lg font-medium mb-2">Indirizzo</p>
-                    <p className="text-gray-600">Via del Greto 5</p>
-                    <p className="text-gray-600">40132 Bologna</p>
-                  </div>
-                  <div>
-                    <p className="text-lg font-medium mb-2">Telefono</p>
-                    <a
-                      href="tel:051563660"
-                      className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
-                    >
-                      051 563660
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-lg font-medium mb-2">Email</p>
-                    <a
-                      href="mailto:info@litocalegari.it"
-                      className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
-                    >
-                      info@litocalegari.it
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* FOOTER */}
       <footer className="bg-black text-white py-16">
