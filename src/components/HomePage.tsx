@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { TypeWriter } from './TypeWriter'
 import {
   ChevronDown,
   Menu,
@@ -279,7 +280,7 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12"
+              className="text-base md:text-lg text-black max-w-3xl mx-auto leading-relaxed mb-12"
             >
               Dalla progettazione grafica alla stampa di alta qualità, offriamo
               soluzioni creative e su misura per valorizzare la tua
@@ -671,7 +672,7 @@ const HomePage = () => {
                 <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6 group-hover:text-[#C6D92E] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-white leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -1232,7 +1233,7 @@ const HomePage = () => {
                 >
                   {index + 1}
                 </motion.span>
-                <span className="text-xs font-semibold text-center px-2 text-gray-800 group-hover:text-black transition-colors">
+                <span className="text-xs font-semibold text-center px-2 text-black transition-colors">
                   {item}
                 </span>
                 <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -1268,7 +1269,7 @@ const HomePage = () => {
                   viewport={{ once: true }}
                 >
                   <h4 className="font-bold mb-2 text-black">Offset</h4>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     Particolarmente adatta per tirature medio/alte con formati
                     fino ad un massimale di (50×70 cm) consente una maggiore
                     varietà di scelta per quanto riguarda la gamma di colori
@@ -1282,7 +1283,7 @@ const HomePage = () => {
                   viewport={{ once: true }}
                 >
                   <h4 className="font-bold mb-2 text-black">Digitale</h4>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-black leading-relaxed">
                     Ideale per tirature limitate e stampe personalizzate con
                     tempi di consegna rapidi.
                   </p>
@@ -1349,10 +1350,11 @@ const HomePage = () => {
                 LA NOSTRA FILOSOFIA
               </p>
               <p className="text-xl md:text-2xl leading-relaxed">
-                La nostra filosofia è quella di accompagnare il Cliente
-                attraverso tutte le fasi del processo creativo partendo da una
-                semplice bozza fino ad arrivare al mockup definitivo del
-                prodotto.
+                <TypeWriter 
+                  text="La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto."
+                  speed={30}
+                  delay={500}
+                />
               </p>
             </motion.div>
             <div className="grid grid-cols-2 gap-4">
@@ -1479,7 +1481,7 @@ const HomePage = () => {
                     />
                   </motion.div>
                   <div className="flex-1">
-                    <p className="text-gray-700 italic text-lg leading-relaxed">
+                    <p className="text-black italic text-lg leading-relaxed">
                       "{testimonials[currentTestimonial].text}"
                     </p>
                   </div>
