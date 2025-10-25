@@ -66,7 +66,21 @@ const HomePage = () => {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white">
+    <div 
+      ref={containerRef} 
+      className="min-h-screen bg-white scroll-smooth"
+      style={{
+        scrollSnapType: 'y mandatory',
+        overflowY: 'scroll',
+        height: '100vh',
+      }}
+    >
+      {/* Scroll Progress Indicator */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C6D92E] to-[#B8C526] origin-left z-[100]"
+        style={{ scaleX: scrollYProgress }}
+      />
+
       {/* HEADER - From screenshot version */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
@@ -186,7 +200,10 @@ const HomePage = () => {
       </motion.header>
 
       {/* HERO SECTION - With parallax from old version */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden"
+        style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}
+      >
         {/* Background blur effects */}
         <motion.div
           style={{ y: springY, opacity }}
@@ -214,7 +231,7 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold text-black mb-6"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-black mb-6"
             >
               Studio grafico e
               <br />
@@ -224,19 +241,44 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-gray-600 max-w-2xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
             >
               Dalla progettazione grafica alla stampa di alta qualità,
               <br />
               offriamo soluzioni creative e su misura per valorizzare la tua
               comunicazione
             </motion.p>
+            
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-6 h-10 border-2 border-[#C6D92E] rounded-full flex justify-center p-2"
+              >
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-1.5 h-1.5 bg-[#C6D92E] rounded-full"
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* IMAGE GALLERY - Enhanced with animations */}
-      <section className="py-16 bg-white">
+      {/* GALLERY + DESCRIPTION + VALUES - Combined Section */}
+      <section 
+        className="min-h-screen flex flex-col justify-center py-16 bg-white"
+        style={{ scrollSnapAlign: 'start' }}
+      >
+        {/* IMAGE GALLERY - Enhanced with animations */}
+        <div className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
