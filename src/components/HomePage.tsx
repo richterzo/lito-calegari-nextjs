@@ -541,61 +541,6 @@ const HomePage = () => {
       </section>
 
 
-      {/* SEZIONE VALORI */}
-      <section className="py-16 sm:py-24 bg-gray-50 text-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-[#C6D92E] rounded-full flex items-center justify-center text-black text-2xl font-bold mx-auto mb-6">
-                #01
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Qualità</h3>
-              <p className="text-gray-600">
-                Per i tuoi progetti utilizziamo solo materiali di alta qualità.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-[#C6D92E] rounded-full flex items-center justify-center text-black text-2xl font-bold mx-auto mb-6">
-                #02
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Personalizzazione</h3>
-              <p className="text-gray-600">
-                Ogni prodotto è realizzato su misura, curando ogni dettaglio.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-16 h-16 bg-[#C6D92E] rounded-full flex items-center justify-center text-black text-2xl font-bold mx-auto mb-6">
-                #03
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Rapidità</h3>
-              <p className="text-gray-600">
-                Dal progetto alla consegna, garantiamo tempi rapidi.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* COSA PUOI REALIZZARE */}
       <section className="py-16 sm:py-24 bg-gray-50 text-black">
         <div className="max-w-7xl mx-auto px-6">
