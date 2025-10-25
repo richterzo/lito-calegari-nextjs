@@ -540,53 +540,123 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* SEZIONE DESCRIZIONE */}
-      <section className="py-16 sm:py-24 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* SEZIONE DESCRIZIONE - APPLE STYLE PARALLAX */}
+      <section className="relative py-32 sm:py-48 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
+            className="absolute top-20 left-10 w-32 h-32 bg-[#C6D92E] rounded-full blur-3xl"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            whileInView={{ opacity: 0.08, scale: 1 }}
+            transition={{ duration: 2.5, ease: "easeOut", delay: 0.5 }}
+            viewport={{ once: true }}
+            className="absolute bottom-20 right-10 w-48 h-48 bg-[#B8C526] rounded-full blur-3xl"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.4 }}
+            whileInView={{ opacity: 0.06, scale: 1 }}
+            transition={{ duration: 3, ease: "easeOut", delay: 1 }}
+            viewport={{ once: true }}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#C6D92E] to-[#B8C526] rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center max-w-5xl mx-auto"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+            <motion.h2 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-7xl font-bold mb-8 leading-tight"
+            >
               Dove le tue idee{' '}
               <motion.span
-                className="highlight-brand text-[#C6D92E]"
-                whileHover={{ color: '#B8C526' }}
+                className="relative inline-block"
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                prendono forma
+                <span className="bg-gradient-to-r from-[#C6D92E] to-[#B8C526] bg-clip-text text-transparent">
+                  prendono forma
+                </span>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  viewport={{ once: true }}
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#C6D92E] to-[#B8C526] rounded-full"
+                />
               </motion.span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
+            </motion.h2>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-xl md:text-2xl text-gray-600 mb-12 font-light"
+            >
               Studio grafico e stampa
-            </p>
-            <p className="text-lg text-gray-700 mb-8">
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto"
+            >
               Dalla{' '}
               <motion.span
-                className="highlight-brand text-[#C6D92E]"
-                whileHover={{ color: '#B8C526' }}
+                className="relative font-semibold text-[#C6D92E] cursor-pointer"
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 progettazione grafica
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C6D92E] rounded-full"
+                />
               </motion.span>{' '}
-              alla stampa di alta qualità, offriamo soluzioni creative e su
-              misura per valorizzare la tua comunicazione
-            </p>
-            <p className="text-lg text-gray-700">
-              Offriamo un'ampia gamma di soluzioni di stampa, dai{' '}
-              <motion.span
-                className="highlight-brand text-[#C6D92E]"
-                whileHover={{ color: '#B8C526' }}
-                transition={{ duration: 0.3 }}
-              >
-                biglietti da visita
-              </motion.span>{' '}
-              ai cataloghi, dai banner ai materiali personalizzati, garantendo
-              qualità, creatività e attenzione ai dettagli in ogni progetto.
-            </p>
+              alla stampa di alta qualità, offriamo soluzioni creative e su misura per valorizzare la tua comunicazione
+            </motion.div>
+
+            {/* Floating Elements */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1 }}
+              viewport={{ once: true }}
+              className="mt-16 flex justify-center space-x-8"
+            >
+              {['Creatività', 'Qualità', 'Innovazione'].map((word, index) => (
+                <motion.div
+                  key={word}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 + index * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-gray-200"
+                >
+                  <span className="text-sm font-medium text-gray-700">{word}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -907,7 +977,7 @@ const HomePage = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-12">
               I nostri orari
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               {/* Orari */}
               <motion.div
@@ -923,7 +993,9 @@ const HomePage = () => {
                 <div className="space-y-3 text-left">
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Lunedì - Venerdì</span>
-                    <span className="text-gray-600">8:00 - 12:00 | 13:00 - 17:00</span>
+                    <span className="text-gray-600">
+                      8:00 - 12:00 | 13:00 - 17:00
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Sabato</span>
@@ -955,8 +1027,8 @@ const HomePage = () => {
                   </div>
                   <div>
                     <p className="text-lg font-medium mb-2">Telefono</p>
-                    <a 
-                      href="tel:051563660" 
+                    <a
+                      href="tel:051563660"
                       className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
                     >
                       051 563660
@@ -964,8 +1036,8 @@ const HomePage = () => {
                   </div>
                   <div>
                     <p className="text-lg font-medium mb-2">Email</p>
-                    <a 
-                      href="mailto:info@litocalegari.it" 
+                    <a
+                      href="mailto:info@litocalegari.it"
                       className="text-[#C6D92E] hover:text-[#B8C526] transition-colors"
                     >
                       info@litocalegari.it
