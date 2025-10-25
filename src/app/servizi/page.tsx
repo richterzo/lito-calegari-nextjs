@@ -12,28 +12,46 @@ const ServiziPage = () => {
   const servizi = [
     {
       title: 'Progettazione Grafica',
-      description: 'Diamo forma alle tue idee con creatività e competenza, realizzando progetti grafici dal forte impatto visivo.',
+      description:
+        'Diamo forma alle tue idee con creatività e competenza, realizzando progetti grafici dal forte impatto visivo.',
       link: '/progettazione-grafica',
       icon: 'G',
       color: 'from-blue-500 to-blue-600',
-      features: ['Logo Design', 'Brand Identity', 'Materiali Promozionali', 'Packaging Design']
+      features: [
+        'Logo Design',
+        'Brand Identity',
+        'Materiali Promozionali',
+        'Packaging Design',
+      ],
     },
     {
       title: 'Stampa Digitale',
-      description: 'Ideale per tirature basse e personalizzazioni, offre rapidità di esecuzione e qualità eccellente.',
+      description:
+        'Ideale per tirature basse e personalizzazioni, offre rapidità di esecuzione e qualità eccellente.',
       link: '/stampa-digitale',
       icon: 'D',
       color: 'from-green-500 to-green-600',
-      features: ['Stampa Rapida', 'Personalizzazione', 'Piccole Tirature', 'Qualità Eccellente']
+      features: [
+        'Stampa Rapida',
+        'Personalizzazione',
+        'Piccole Tirature',
+        'Qualità Eccellente',
+      ],
     },
     {
       title: 'Stampa Offset',
-      description: 'Particolarmente adatta per tirature medio/alte con formati fino a 50×70 cm e colori brillanti.',
+      description:
+        'Particolarmente adatta per tirature medio/alte con formati fino a 50×70 cm e colori brillanti.',
       link: '/stampa-offset',
       icon: 'O',
       color: 'from-purple-500 to-purple-600',
-      features: ['Tirature Medie/Alte', 'Colori Pantone', 'Formati Grandi', 'Qualità Costante']
-    }
+      features: [
+        'Tirature Medie/Alte',
+        'Colori Pantone',
+        'Formati Grandi',
+        'Qualità Costante',
+      ],
+    },
   ]
 
   return (
@@ -134,7 +152,7 @@ const ServiziPage = () => {
               className="fixed inset-0 bg-black/60 backdrop-blur-md z-40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            
+
             <motion.div
               initial={{ x: '100%', opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -175,7 +193,7 @@ const ServiziPage = () => {
                       Home
                     </Link>
                   </motion.div>
-                  
+
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -209,7 +227,7 @@ const ServiziPage = () => {
                       </Link>
                     </div>
                   </motion.div>
-                  
+
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -234,11 +252,14 @@ const ServiziPage = () => {
                   >
                     Richiedi Preventivo
                   </motion.button>
-                  
+
                   <div className="mt-4 text-center text-xs sm:text-sm text-gray-500 space-y-1">
                     <p>Via del Greto 5, 40132 Bologna</p>
                     <p>
-                      <a href="tel:+39051563660" className="hover:text-[#C6D92E] transition-colors">
+                      <a
+                        href="tel:+39051563660"
+                        className="hover:text-[#C6D92E] transition-colors"
+                      >
                         051 563660
                       </a>
                     </p>
@@ -263,8 +284,9 @@ const ServiziPage = () => {
               I nostri servizi
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dalla progettazione grafica alla stampa di alta qualità, 
-              offriamo soluzioni creative e su misura per valorizzare la tua comunicazione.
+              Dalla progettazione grafica alla stampa di alta qualità, offriamo
+              soluzioni creative e su misura per valorizzare la tua
+              comunicazione.
             </p>
           </motion.div>
         </div>
@@ -286,7 +308,9 @@ const ServiziPage = () => {
                 <Link href={servizio.link}>
                   <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-2xl hover:border-[#C6D92E] transition-all duration-300 h-full">
                     {/* Icon */}
-                    <div className={`w-16 h-16 bg-gradient-to-br ${servizio.color} rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-br ${servizio.color} rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <span className="text-white text-2xl font-bold">
                         {servizio.icon}
                       </span>
@@ -296,7 +320,7 @@ const ServiziPage = () => {
                     <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center group-hover:text-[#C6D92E] transition-colors">
                       {servizio.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 mb-6 text-center leading-relaxed">
                       {servizio.description}
                     </p>
@@ -304,7 +328,10 @@ const ServiziPage = () => {
                     {/* Features */}
                     <ul className="space-y-2 mb-6">
                       {servizio.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-gray-500">
+                        <li
+                          key={featureIndex}
+                          className="flex items-center text-sm text-gray-500"
+                        >
                           <div className="w-2 h-2 bg-[#C6D92E] rounded-full mr-3"></div>
                           {feature}
                         </li>
@@ -337,7 +364,7 @@ const ServiziPage = () => {
               Hai un progetto in mente?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Contattaci per un preventivo personalizzato e scopri come possiamo 
+              Contattaci per un preventivo personalizzato e scopri come possiamo
               dare forma alle tue idee.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -410,9 +437,7 @@ const ServiziPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold text-white mb-6">
-                CONTATTI
-              </h3>
+              <h3 className="text-xl font-bold text-white mb-6">CONTATTI</h3>
               <ul className="space-y-3 text-gray-400">
                 <li>Via del Greto 5, 40132 Bologna</li>
                 <li>
