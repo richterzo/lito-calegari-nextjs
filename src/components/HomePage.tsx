@@ -572,7 +572,8 @@ const HomePage = () => {
               >
                 progettazione grafica
               </motion.span>{' '}
-              alla stampa di alta qualità, offriamo soluzioni creative e su misura per valorizzare la tua comunicazione
+              alla stampa di alta qualità, offriamo soluzioni creative e su
+              misura per valorizzare la tua comunicazione
             </p>
             <p className="text-lg text-gray-700">
               Offriamo un'ampia gamma di soluzioni di stampa, dai{' '}
@@ -583,7 +584,8 @@ const HomePage = () => {
               >
                 biglietti da visita
               </motion.span>{' '}
-              ai cataloghi, dai banner ai materiali personalizzati, garantendo qualità, creatività e attenzione ai dettagli in ogni progetto.
+              ai cataloghi, dai banner ai materiali personalizzati, garantendo
+              qualità, creatività e attenzione ai dettagli in ogni progetto.
             </p>
           </motion.div>
         </div>
@@ -644,76 +646,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* SEZIONE SERVIZI */}
-      <section className="py-16 sm:py-24 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              I nostri servizi
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-xl font-bold mb-4 text-[#C6D92E]">Finitura</h3>
-              <p className="text-gray-600">
-                Rendiamo ogni lavoro unico grazie a finiture di pregio e cura dei dettagli, per dare un tocco distintivo e valorizzare al massimo la tua comunicazione.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-xl font-bold mb-4 text-[#C6D92E]">Extra</h3>
-              <p className="text-gray-600">
-                Superiamo i limiti della carta con stampe su supporti innovativi e di prestigio, offrendo nuove possibilità creative per valorizzare la tua comunicazione.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-xl font-bold mb-4 text-[#C6D92E]">Grafica</h3>
-              <p className="text-gray-600">
-                Diamo forma alle tue idee con creatività e competenza, realizzando progetti grafici dal forte impatto visivo, accompagnandoti in ogni fase della creazione.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-xl font-bold mb-4 text-[#C6D92E]">Stampa</h3>
-              <p className="text-gray-600">
-                Macchinari di ultima generazione e materiali certificati FSC® ci consentono di offrirti stampe rapide, di qualità eccellente e rispettose dell'ambiente.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* COSA PUOI REALIZZARE */}
       <section className="py-16 sm:py-24 bg-gray-50 text-black">
@@ -733,10 +665,78 @@ const HomePage = () => {
             </p>
           </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {[
+              {
+                title: 'Cataloghi',
+                image: '/images/banner_cat_magazines_01_d.jpg'
+              },
+              {
+                title: 'Biglietti da visita',
+                image: '/images/Artboard-1-1-scaled.png'
+              },
+              {
+                title: 'Adesivi',
+                image: '/images/Artboard-12-scaled.png'
+              },
+              {
+                title: 'Flyer',
+                image: '/images/Artboard-13-scaled.png'
+              },
+              {
+                title: 'Progettazione grafica',
+                image: '/images/Artboard-16-scaled.png'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow group"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-lg font-bold text-[#C6D92E] group-hover:text-black transition-colors">
+                    {item.title}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVIZI NUMERATI */}
+      <section className="py-16 sm:py-24 bg-white text-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              I nostri servizi
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tutto quello che possiamo fare per te
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
               'Rilegatura',
-              'Plastificazione', 
+              'Plastificazione',
               'Taglio',
               'Taglio plotter',
               'Nobilitazione',
@@ -744,7 +744,7 @@ const HomePage = () => {
               'Impaginazione',
               'Stampa dato variabile',
               'Prespaziati',
-              'e molto altro...'
+              'e molto altro...',
             ].map((item, index) => (
               <motion.div
                 key={item}
@@ -752,7 +752,7 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-xl text-center hover:shadow-lg transition-shadow hover:bg-[#C6D92E] hover:text-black group"
+                className="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow hover:bg-[#C6D92E] hover:text-black group"
               >
                 <div className="text-2xl font-bold mb-2 text-[#C6D92E] group-hover:text-black">
                   {index + 1}
@@ -777,9 +777,7 @@ const HomePage = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Stampa Offset o Digitale
             </h2>
-            <p className="text-xl text-gray-600">
-              Quale stampa scegliere?
-            </p>
+            <p className="text-xl text-gray-600">Quale stampa scegliere?</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -792,7 +790,12 @@ const HomePage = () => {
             >
               <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">Offset</h3>
               <p className="text-gray-600">
-                Particolarmente adatta per tirature medio/alte con formati fino ad un massimale di (50×70 cm) consente una maggiore varietà di scelta per quanto riguarda la gamma di colori (PANTONE - RAL - TOYOINK) e l'utilizzo d'inchiostri certificati per il settore alimentare. In tal modo è possibile ottenere colori brillanti e uniformi dalla prima all'ultima copia.
+                Particolarmente adatta per tirature medio/alte con formati fino
+                ad un massimale di (50×70 cm) consente una maggiore varietà di
+                scelta per quanto riguarda la gamma di colori (PANTONE - RAL -
+                TOYOINK) e l'utilizzo d'inchiostri certificati per il settore
+                alimentare. In tal modo è possibile ottenere colori brillanti e
+                uniformi dalla prima all'ultima copia.
               </p>
             </motion.div>
 
@@ -803,10 +806,10 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="bg-gray-50 p-8 rounded-2xl"
             >
-              <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">Digitale</h3>
-              <p className="text-gray-600">
-                StampaPersonalizzazionePassione
-              </p>
+              <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
+                Digitale
+              </h3>
+              <p className="text-gray-600">StampaPersonalizzazionePassione</p>
             </motion.div>
           </div>
         </div>
@@ -829,7 +832,9 @@ const HomePage = () => {
               Il meglio per i tuoi progetti
             </p>
             <p className="text-lg text-gray-700">
-              La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto.
+              La nostra filosofia è quella di accompagnare il Cliente attraverso
+              tutte le fasi del processo creativo partendo da una semplice bozza
+              fino ad arrivare al mockup definitivo del prodotto.
             </p>
           </motion.div>
         </div>
@@ -848,29 +853,27 @@ const HomePage = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Cosa dicono di noi
             </h2>
-            <p className="text-xl text-gray-600">
-              Da Google
-            </p>
+            <p className="text-xl text-gray-600">Da Google</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Mario Photokitesurf",
-                text: "Molto cordiali e disponibili, forniscono ottimi consigli per un risultato impeccabile dalla grafica superiore!!! ...anche oggi ne ho avuto dimostrazione... nonostante la richiesta dell'ultimo momento, ho avuto subito un nuovo logo (STUPENDO!!!) e le stampe che mi servivano."
+                name: 'Mario Photokitesurf',
+                text: "Molto cordiali e disponibili, forniscono ottimi consigli per un risultato impeccabile dalla grafica superiore!!! ...anche oggi ne ho avuto dimostrazione... nonostante la richiesta dell'ultimo momento, ho avuto subito un nuovo logo (STUPENDO!!!) e le stampe che mi servivano.",
               },
               {
-                name: "Fabrizio P.",
-                text: "Gentilissimi e bravissimi! Mi sono rivolto a loro per stampare la mia tesi per la quale richiedevo un impaginazione in A4 orizzontale tipo rivista (non penso stampino tesi classiche) con molte immagini e colori. Sono estremamente soddisfatto del risultato e della qualità della stampa, super consigliati e con prezzi ottimi! Se avrò di nuovo bisogno di lavori grafici di qualità so a chi rivolgermi, grazie ancora"
+                name: 'Fabrizio P.',
+                text: 'Gentilissimi e bravissimi! Mi sono rivolto a loro per stampare la mia tesi per la quale richiedevo un impaginazione in A4 orizzontale tipo rivista (non penso stampino tesi classiche) con molte immagini e colori. Sono estremamente soddisfatto del risultato e della qualità della stampa, super consigliati e con prezzi ottimi! Se avrò di nuovo bisogno di lavori grafici di qualità so a chi rivolgermi, grazie ancora',
               },
               {
-                name: "Patrick Pagliaro",
-                text: "Super soddisfatto del servizio offerto per l'impaginazione del mio catalogo prima e la stampa dopo. Molto bravi nel gestire il progetto. La comunicazione è stata chiara. Il risultato finale ha superato le mie aspettative"
+                name: 'Patrick Pagliaro',
+                text: "Super soddisfatto del servizio offerto per l'impaginazione del mio catalogo prima e la stampa dopo. Molto bravi nel gestire il progetto. La comunicazione è stata chiara. Il risultato finale ha superato le mie aspettative",
               },
               {
-                name: "Antonio Tricarico",
-                text: "Preparati e attenti al più piccolo dettaglio, mi hanno sempre proposto la soluzione migliore a fronte dei vincoli di tempi e costi. Consigliato ad occhi chiusi."
-              }
+                name: 'Antonio Tricarico',
+                text: 'Preparati e attenti al più piccolo dettaglio, mi hanno sempre proposto la soluzione migliore a fronte dei vincoli di tempi e costi. Consigliato ad occhi chiusi.',
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
@@ -880,8 +883,12 @@ const HomePage = () => {
                 viewport={{ once: true }}
                 className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow"
               >
-                <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
-                <div className="font-bold text-[#C6D92E]">{testimonial.name}</div>
+                <p className="text-gray-600 mb-6 italic">
+                  "{testimonial.text}"
+                </p>
+                <div className="font-bold text-[#C6D92E]">
+                  {testimonial.name}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -902,7 +909,9 @@ const HomePage = () => {
               I nostri orari
             </h2>
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">Contatti</h3>
+              <h3 className="text-2xl font-bold mb-6 text-[#C6D92E]">
+                Contatti
+              </h3>
               <p className="text-lg text-gray-600 mb-4">Via del Greto 5</p>
               <p className="text-lg text-gray-600">40132 Bologna</p>
             </div>
