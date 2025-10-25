@@ -1,15 +1,19 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronDown, Menu, X, ChevronLeft, ChevronRight, ArrowRight, Sparkles, Zap } from 'lucide-react'
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   AnimatePresence,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame,
+  cubicBezier,
 } from 'framer-motion'
 
 const HomePage = () => {
@@ -73,12 +77,12 @@ const HomePage = () => {
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* HEADER - From screenshot version */}
+      {/* PREMIUM HEADER - Glassmorphism */}
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+        transition={{ duration: 1, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) }}
+        className="fixed top-0 left-0 right-0 z-50 glass shadow-premium"
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center">
@@ -201,11 +205,11 @@ const HomePage = () => {
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
           style={{ zIndex: 0 }}
         >
-          <h2 
+          <h2
             className="text-[20vw] md:text-[25vw] font-black text-gray-100 leading-none"
-            style={{ 
+            style={{
               letterSpacing: '-0.05em',
-              WebkitTextStroke: '2px rgba(0,0,0,0.02)'
+              WebkitTextStroke: '2px rgba(0,0,0,0.02)',
             }}
           >
             STAMPA
@@ -227,24 +231,65 @@ const HomePage = () => {
             >
               Dove le tue idee prendono forma
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight"
             >
-              Studio grafico e<br />stampa
+              Studio grafico e<br />
+              stampa
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12"
             >
-              Dalla progettazione grafica alla stampa di alta qualità, offriamo soluzioni creative e su misura per valorizzare la tua comunicazione
+              Dalla progettazione grafica alla stampa di alta qualità, offriamo
+              soluzioni creative e su misura per valorizzare la tua
+              comunicazione
             </motion.p>
+
+            {/* Premium CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex flex-wrap gap-6 justify-center items-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 py-4 bg-black text-white rounded-full font-semibold overflow-hidden btn-premium shadow-premium flex items-center gap-3"
+              >
+                <span className="relative z-10">Scopri i servizi</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="relative z-10"
+                >
+                  <ArrowRight size={20} />
+                </motion.div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#C6D92E] to-[#B8C526]"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.4 }}
+                />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 border-2 border-black text-black rounded-full font-semibold hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-2"
+              >
+                <Sparkles size={20} />
+                <span>Portfolio</span>
+              </motion.button>
+            </motion.div>
 
             {/* Scroll Indicator - Animated */}
             <motion.div
@@ -254,20 +299,18 @@ const HomePage = () => {
               className="mt-16"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, 12, 0],
-                  opacity: [1, 0.5, 1]
+                  opacity: [1, 0.5, 1],
                 }}
-                transition={{ 
-                  duration: 2, 
+                transition={{
+                  duration: 2,
                   repeat: Infinity,
-                  ease: 'easeInOut'
+                  ease: 'easeInOut',
                 }}
                 className="w-6 h-10 border-2 border-gray-400 rounded-full mx-auto flex justify-center p-2"
               >
-                <motion.div
-                  className="w-1.5 h-1.5 bg-gray-400 rounded-full"
-                />
+                <motion.div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
               </motion.div>
             </motion.div>
           </motion.div>
@@ -278,26 +321,54 @@ const HomePage = () => {
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
-            {/* Image 1 - Rotated left */}
+            {/* Image 1 - Rotated left with premium overlay */}
             <motion.div
-              initial={{ opacity: 0, y: 50, rotate: -8 }}
-              whileInView={{ opacity: 1, y: 0, rotate: -4 }}
-              transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
-              viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ 
-                scale: 1.05, 
-                rotate: -2,
-                y: -10,
-                transition: { duration: 0.3 }
+              initial={{ opacity: 0, y: 80, rotate: -10, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: -4, scale: 1 }}
+              transition={{ 
+                duration: 1.2, 
+                type: 'spring', 
+                stiffness: 80,
+                delay: 0 
               }}
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d"
-              style={{ transformOrigin: 'center center' }}
+              viewport={{ once: true, margin: '-100px' }}
+              whileHover={{
+                scale: 1.08,
+                rotate: 0,
+                y: -15,
+                z: 50,
+                transition: { duration: 0.5, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) },
+              }}
+              className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg transform-3d cursor-pointer"
+              style={{ transformOrigin: 'center center', transformStyle: 'preserve-3d' }}
             >
               <Image
                 src="/images/Artboard-1-1-scaled.png"
                 alt="Portfolio 1"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Premium Overlay */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6"
+              >
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  whileHover={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <h3 className="text-white font-bold text-xl mb-2">Biglietti da Visita</h3>
+                  <p className="text-white/80 text-sm">Design personalizzato e stampa di qualità</p>
+                </motion.div>
+              </motion.div>
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '200%' }}
+                transition={{ duration: 0.8 }}
               />
             </motion.div>
 
@@ -307,11 +378,11 @@ const HomePage = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1, type: 'spring' }}
               viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 y: -15,
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl col-span-1"
             >
@@ -327,13 +398,18 @@ const HomePage = () => {
             <motion.div
               initial={{ opacity: 0, y: 50, rotate: 8 }}
               whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-              transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 100 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                type: 'spring',
+                stiffness: 100,
+              }}
               viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotate: 2,
                 y: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d"
               style={{ transformOrigin: 'center center' }}
@@ -350,13 +426,18 @@ const HomePage = () => {
             <motion.div
               initial={{ opacity: 0, y: 50, rotate: -8 }}
               whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-              transition={{ duration: 0.8, delay: 0.3, type: 'spring', stiffness: 100 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: 'spring',
+                stiffness: 100,
+              }}
               viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotate: -1,
                 y: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
               style={{ transformOrigin: 'center center' }}
@@ -373,13 +454,18 @@ const HomePage = () => {
             <motion.div
               initial={{ opacity: 0, y: 50, rotate: 8 }}
               whileInView={{ opacity: 1, y: 0, rotate: 3 }}
-              transition={{ duration: 0.8, delay: 0.4, type: 'spring', stiffness: 100 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.4,
+                type: 'spring',
+                stiffness: 100,
+              }}
               viewport={{ once: true, margin: '-100px' }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotate: 1,
                 y: -10,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
               style={{ transformOrigin: 'center center' }}
@@ -413,7 +499,8 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="font-semibold relative inline-block"
               style={{
-                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                background:
+                  'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '0 85%',
                 backgroundSize: '0% 40%',
@@ -429,7 +516,8 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="font-semibold relative inline-block"
               style={{
-                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                background:
+                  'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '0 85%',
                 backgroundSize: '0% 40%',
@@ -445,7 +533,8 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="font-semibold relative inline-block"
               style={{
-                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                background:
+                  'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '0 85%',
                 backgroundSize: '0% 40%',
@@ -461,7 +550,8 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="font-semibold relative inline-block"
               style={{
-                background: 'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
+                background:
+                  'linear-gradient(to right, #C6D92E 0%, #C6D92E 100%)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '0 85%',
                 backgroundSize: '0% 40%',
@@ -469,7 +559,8 @@ const HomePage = () => {
             >
               banner
             </motion.span>{' '}
-            ai materiali personalizzati, garantendo qualità, creatività e attenzione ai dettagli in ogni progetto.
+            ai materiali personalizzati, garantendo qualità, creatività e
+            attenzione ai dettagli in ogni progetto.
           </motion.p>
         </div>
       </section>
