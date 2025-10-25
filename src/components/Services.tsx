@@ -61,7 +61,6 @@ const Services = () => {
     },
   ]
 
-
   return (
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -105,7 +104,11 @@ const Services = () => {
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+              animate={
+                isInView
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: 50, scale: 0.9 }
+              }
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{
                 y: -10,
