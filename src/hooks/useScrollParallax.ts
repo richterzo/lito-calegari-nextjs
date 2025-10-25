@@ -7,7 +7,7 @@ interface ScrollParallaxOptions {
 }
 
 export function useScrollParallax(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | HTMLDivElement | null>,
   options: ScrollParallaxOptions = {}
 ) {
   const { offset = ['start end', 'end start'], smoothness = 100 } = options

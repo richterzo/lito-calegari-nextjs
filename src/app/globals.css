@@ -1,7 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Poppins SemiBold as default for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 
 /* Smooth Scroll Snapping */
 html {
@@ -16,11 +28,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  font-weight: 400;
 }
 
 section {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
+}
+
+/* Smooth Transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid #c6d92e;
+  outline-offset: 2px;
+}
+
+/* Smooth image loading */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Hardware acceleration for animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
 }
 
 /* 3D Perspective Utilities */
@@ -254,12 +297,46 @@ body {
   }
 
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hover-lift:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Smooth animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-smooth-slow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-bounce {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* GPU Acceleration */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 }
 
@@ -788,6 +865,81 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b8c526;
+}
+
+/* Mobile Responsive Optimizations */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile for better performance */
+  .halftone-layer {
+    animation-duration: 30s !important;
+  }
+
+  /* Simplify registration marks on mobile */
+  .registration-mark {
+    opacity: 0.03 !important;
+  }
+
+  /* Optimize font sizes for mobile */
+  h1 {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 3rem) !important;
+    line-height: 1.2;
+  }
+
+  /* Better touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Reduce blur effects on mobile */
+  [style*='blur'] {
+    filter: blur(15px) !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  /* Enable more complex animations on desktop */
+  .parallax-element {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Prevent layout shift during animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-width: 2px;
+  }
 }
 
 /* Enhanced button styles */
