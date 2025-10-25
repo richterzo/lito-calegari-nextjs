@@ -515,7 +515,9 @@ const HomePage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">e molto altro...</h2>
+            <h2 className="text-4xl font-bold mb-4 text-black">
+              e molto altro...
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -533,17 +535,42 @@ const HomePage = () => {
             ].map((item, index) => (
               <motion.div
                 key={item}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
+                initial={{ opacity: 0, scale: 0.5, rotateY: -90 }}
+                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.08,
+                  type: 'spring',
+                  stiffness: 100,
+                }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-full h-32 rounded-full border-2 border-gray-300 flex flex-col items-center justify-center hover:border-[#C6D92E] hover:bg-[#C6D92E]/5 transition-all cursor-pointer"
+                whileHover={{
+                  scale: 1.15,
+                  rotateY: 10,
+                  rotateX: 5,
+                  z: 50,
+                  transition: { duration: 0.3 },
+                }}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="relative w-full h-32 rounded-full bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 flex flex-col items-center justify-center hover:border-[#C6D92E] hover:shadow-xl hover:shadow-[#C6D92E]/20 transition-all cursor-pointer group"
               >
-                <span className="text-xl font-bold text-[#C6D92E]">
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-gradient-to-br from-[#C6D92E]/0 to-[#C6D92E]/0 group-hover:from-[#C6D92E]/5 group-hover:to-[#C6D92E]/10 transition-all duration-300"
+                  style={{ transform: 'translateZ(-1px)' }}
+                />
+                <motion.span
+                  className="text-2xl font-bold text-[#C6D92E] mb-1"
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   {index + 1}
+                </motion.span>
+                <span className="text-xs font-semibold text-center px-2 text-gray-800 group-hover:text-black transition-colors">
+                  {item}
                 </span>
-                <span className="text-xs text-center px-2 mt-1">{item}</span>
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute inset-2 rounded-full border border-[#C6D92E]/30 animate-ping" />
+                </div>
               </motion.div>
             ))}
           </div>
