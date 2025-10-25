@@ -36,18 +36,22 @@ const HomePage = () => {
     {
       name: 'Mario Photokitesurf',
       text: "Molto cordiali e disponibili, forniscono ottimi consigli per un risultato impeccabile dalla grafica superiore!!! ...anche oggi ne ho avuto dimostrazione... nonostante la richiesta dell'ultimo momento, ho avuto subito un nuovo logo (STUPENDO!!!) e le stampe che mi servivano.",
+      avatar: '/images/9434619-scaled-254x254.jpg',
     },
     {
       name: 'Fabrizio P.',
       text: 'Gentilissimi e bravissimi! Mi sono rivolto a loro per stampare la mia tesi per la quale richiedevo un impaginazione in A4 orizzontale tipo rivista (non penso stampino tesi classiche) con molte immagini e colori. Sono estremamente soddisfatto del risultato e della qualità della stampa, super consigliati e con prezzi ottimi!',
+      avatar: '/images/9439678-scaled-254x254.jpg',
     },
     {
       name: 'Patrick Pagliaro',
       text: "Super soddisfatto del servizio offerto per l'impaginazione del mio catalogo prima e la stampa dopo. Molto bravi nel gestire il progetto. La comunicazione è stata chiara. Il risultato finale ha superato le mie aspettative",
+      avatar: '/images/9440461-scaled-254x254.jpg',
     },
     {
       name: 'Antonio Tricarico',
       text: 'Preparati e attenti al più piccolo dettaglio, mi hanno sempre proposto la soluzione migliore a fronte dei vincoli di tempi e costi. Consigliato ad occhi chiusi.',
+      avatar: '/images/9434619-scaled-254x254.jpg',
     },
   ]
 
@@ -706,12 +710,6 @@ const HomePage = () => {
                 height: 40,
               },
               {
-                name: 'Mastercard',
-                src: '/images/9439727-scaled-254x254.jpg',
-                width: 80,
-                height: 80,
-              },
-              {
                 name: 'Adobe',
                 src: '/images/Adobe_Corporate_Logo.png',
                 width: 100,
@@ -771,10 +769,28 @@ const HomePage = () => {
                 transition={{ duration: 0.5 }}
                 className="bg-gray-50 p-8 rounded-2xl shadow-lg"
               >
-                <p className="text-gray-700 mb-6 italic text-lg leading-relaxed">
-                  "{testimonials[currentTestimonial].text}"
-                </p>
-                <p className="font-bold text-[#C6D92E] text-lg">
+                <div className="flex items-start gap-6 mb-6">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex-shrink-0"
+                  >
+                    <Image
+                      src={testimonials[currentTestimonial].avatar}
+                      alt={testimonials[currentTestimonial].name}
+                      width={80}
+                      height={80}
+                      className="rounded-full shadow-lg ring-4 ring-[#C6D92E]/20"
+                    />
+                  </motion.div>
+                  <div className="flex-1">
+                    <p className="text-gray-700 italic text-lg leading-relaxed">
+                      "{testimonials[currentTestimonial].text}"
+                    </p>
+                  </div>
+                </div>
+                <p className="font-bold text-[#C6D92E] text-lg ml-24">
                   {testimonials[currentTestimonial].name}
                 </p>
               </motion.div>
