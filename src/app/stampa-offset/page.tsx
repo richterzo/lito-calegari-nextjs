@@ -226,7 +226,7 @@ const StampaOffsetPage = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
                 È la tecnica tradizionale che garantisce colori brillanti,
@@ -239,7 +239,7 @@ const StampaOffsetPage = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative"
             >
               <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
@@ -261,7 +261,7 @@ const StampaOffsetPage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
                 Grazie alla tecnologia offset, ogni stampa mantiene uniformità e
@@ -275,7 +275,7 @@ const StampaOffsetPage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
               className="bg-gray-50 p-8 sm:p-12 rounded-2xl"
             >
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center leading-tight">
@@ -336,7 +336,7 @@ const StampaOffsetPage = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, margin: "-100px" }}
                 className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center"
               >
                 <div className="text-4xl sm:text-5xl mb-4">

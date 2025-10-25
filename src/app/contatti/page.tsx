@@ -102,13 +102,13 @@ const ContattiPage = () => {
             )}
           </button>
 
-          {/* CTA Button */}
+          {/* CTA Button - Hidden on mobile */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#C6D92E] text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#B8C526] transition-colors"
+            className="hidden md:block bg-[#C6D92E] text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#B8C526] transition-colors"
           >
-            Preventivo
+            CONTATTACI
           </motion.button>
         </div>
       </motion.header>

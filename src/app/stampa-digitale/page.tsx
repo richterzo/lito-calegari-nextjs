@@ -233,7 +233,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Tantissimi supporti
@@ -244,7 +244,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative"
             >
               <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
@@ -263,7 +263,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Stampa digitale: la scelta flessibile e veloce
@@ -282,7 +282,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                 Quando scegliere la stampa digitale
@@ -303,7 +303,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                 La differenza con la stampa offset
@@ -325,7 +325,7 @@ const StampaDigitalePage = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                 Qualità e Tecnologia al tuo servizio

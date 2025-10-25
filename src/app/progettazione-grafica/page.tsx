@@ -287,7 +287,7 @@ const ProgettazioneGraficaPage = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Creatività senza limiti
@@ -310,7 +310,7 @@ const ProgettazioneGraficaPage = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative"
             >
               <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
@@ -356,7 +356,7 @@ const ProgettazioneGraficaPage = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, margin: "-100px" }}
                 className="text-center"
               >
                 <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full mx-auto mb-6 flex items-center justify-center text-white text-xl sm:text-2xl font-bold shadow-lg">
@@ -370,7 +370,7 @@ const ProgettazioneGraficaPage = () => {
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.percentage}%` }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false, margin: "-100px" }}
                     className="bg-gradient-to-r from-[#C6D92E] to-[#B8C526] h-2 rounded-full"
                   />
                 </div>
@@ -401,7 +401,7 @@ const ProgettazioneGraficaPage = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-[#C6D92E] text-black px-8 sm:px-12 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#B8C526] transition-all duration-300 flex items-center gap-2 mx-auto"
             >
-              Richiedi Preventivo
+              CONTATTACI
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </motion.div>
