@@ -273,12 +273,25 @@ const HomePage = () => {
             ].map((img, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="relative h-64 rounded-2xl overflow-hidden shadow-lg"
+                initial={{ opacity: 0, y: 20, scale: 0.8, rotateY: -15 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.1,
+                  type: 'spring',
+                  stiffness: 100
+                }}
+                viewport={{ once: true, margin: '-50px' }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -10,
+                  rotateY: 5,
+                  rotateX: 5,
+                  z: 30,
+                  transition: { duration: 0.3 }
+                }}
+                className="relative h-64 rounded-2xl overflow-hidden shadow-lg transform-3d"
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 <Image
                   src={img}
@@ -387,17 +400,21 @@ const HomePage = () => {
                 key={index}
                 initial={{ opacity: 0, y: 50, rotateX: 45 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2, type: 'spring' }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.2,
+                  type: 'spring',
+                }}
                 viewport={{ once: true, margin: '-100px' }}
                 style={{ transformStyle: 'preserve-3d' }}
                 className="text-center group perspective-1000"
               >
                 <motion.div
-                  whileHover={{ 
-                    scale: 1.1, 
+                  whileHover={{
+                    scale: 1.1,
                     rotate: 5,
                     z: 50,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                   className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full mx-auto mb-6 sm:mb-8 flex items-center justify-center text-white text-xl sm:text-3xl font-bold shadow-2xl cursor-pointer"
                   style={{ transformStyle: 'preserve-3d' }}
