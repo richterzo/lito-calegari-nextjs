@@ -728,35 +728,45 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* IMAGE GALLERY - 5 images on mobile, angled layout on desktop */}
+      {/* IMAGE GALLERY - 5 images on mobile, angled layout on desktop - Optimized for mobile */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
-            {/* Image 1 - Rotated left with premium overlay */}
+            {/* Image 1 - Rotated left with premium overlay - No animations on mobile */}
             <motion.div
-              initial={{ opacity: 0, y: 80, rotate: -10, scale: 0.8 }}
-              whileInView={{ opacity: 1, y: 0, rotate: -4, scale: 1 }}
-              transition={{
-                duration: 1.2,
-                type: 'spring',
-                stiffness: 80,
-                delay: 0,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                scale: 1.08,
-                rotate: 0,
-                y: -15,
-                z: 50,
-                transition: {
-                  duration: 0.5,
-                  ease: 'easeOut',
-                },
-              }}
-              className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg transform-3d cursor-pointer"
+              initial={
+                isMobile ? {} : { opacity: 0, y: 80, rotate: -10, scale: 0.8 }
+              }
+              whileInView={
+                isMobile ? {} : { opacity: 1, y: 0, rotate: -4, scale: 1 }
+              }
+              transition={
+                isMobile
+                  ? undefined
+                  : {
+                      duration: 0.6,
+                      type: 'tween',
+                      ease: 'easeOut',
+                      delay: 0,
+                    }
+              }
+              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
+              whileHover={
+                isMobile
+                  ? undefined
+                  : {
+                      scale: 1.05,
+                      rotate: 0,
+                      y: -10,
+                      transition: {
+                        duration: 0.3,
+                        ease: 'easeOut',
+                      },
+                    }
+              }
+              className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg cursor-pointer"
               style={{
                 transformOrigin: 'center center',
-                transformStyle: 'preserve-3d',
               }}
             >
               <Image
@@ -795,18 +805,30 @@ const HomePage = () => {
               />
             </motion.div>
 
-            {/* Image 2 - Center (larger) */}
+            {/* Image 2 - Center (larger) - Optimized */}
             <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, type: 'spring' }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                scale: 1.05,
-                y: -15,
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                transition: { duration: 0.3 },
-              }}
+              initial={isMobile ? {} : { opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={isMobile ? {} : { opacity: 1, y: 0, scale: 1 }}
+              transition={
+                isMobile
+                  ? undefined
+                  : {
+                      duration: 0.5,
+                      delay: 0.1,
+                      type: 'tween',
+                      ease: 'easeOut',
+                    }
+              }
+              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
+              whileHover={
+                isMobile
+                  ? undefined
+                  : {
+                      scale: 1.03,
+                      y: -10,
+                      transition: { duration: 0.3 },
+                    }
+              }
               className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl col-span-1"
             >
               <Image
@@ -819,24 +841,32 @@ const HomePage = () => {
               />
             </motion.div>
 
-            {/* Image 3 - Rotated right */}
+            {/* Image 3 - Rotated right - Optimized */}
             <motion.div
-              initial={{ opacity: 0, y: 50, rotate: 8 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 4 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.2,
-                type: 'spring',
-                stiffness: 100,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                scale: 1.05,
-                rotate: 2,
-                y: -10,
-                transition: { duration: 0.3 },
-              }}
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d"
+              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: 8 }}
+              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: 4 }}
+              transition={
+                isMobile
+                  ? undefined
+                  : {
+                      duration: 0.5,
+                      delay: 0.2,
+                      type: 'tween',
+                      ease: 'easeOut',
+                    }
+              }
+              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
+              whileHover={
+                isMobile
+                  ? undefined
+                  : {
+                      scale: 1.03,
+                      rotate: 2,
+                      y: -10,
+                      transition: { duration: 0.3 },
+                    }
+              }
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl"
               style={{ transformOrigin: 'center center' }}
             >
               <Image
@@ -849,24 +879,32 @@ const HomePage = () => {
               />
             </motion.div>
 
-            {/* Image 4 - Rotated left */}
+            {/* Image 4 - Rotated left - Optimized */}
             <motion.div
-              initial={{ opacity: 0, y: 50, rotate: -8 }}
-              whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.3,
-                type: 'spring',
-                stiffness: 100,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                scale: 1.05,
-                rotate: -1,
-                y: -10,
-                transition: { duration: 0.3 },
-              }}
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
+              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: -8 }}
+              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: -3 }}
+              transition={
+                isMobile
+                  ? undefined
+                  : {
+                      duration: 0.5,
+                      delay: 0.3,
+                      type: 'tween',
+                      ease: 'easeOut',
+                    }
+              }
+              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
+              whileHover={
+                isMobile
+                  ? undefined
+                  : {
+                      scale: 1.03,
+                      rotate: -1,
+                      y: -10,
+                      transition: { duration: 0.3 },
+                    }
+              }
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl hidden md:block"
               style={{ transformOrigin: 'center center' }}
             >
               <Image
@@ -879,24 +917,32 @@ const HomePage = () => {
               />
             </motion.div>
 
-            {/* Image 5 - Rotated right */}
+            {/* Image 5 - Rotated right - Optimized */}
             <motion.div
-              initial={{ opacity: 0, y: 50, rotate: 8 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 3 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.4,
-                type: 'spring',
-                stiffness: 100,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                scale: 1.05,
-                rotate: 1,
-                y: -10,
-                transition: { duration: 0.3 },
-              }}
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl transform-3d hidden md:block"
+              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: 8 }}
+              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: 3 }}
+              transition={
+                isMobile
+                  ? undefined
+                  : {
+                      duration: 0.5,
+                      delay: 0.4,
+                      type: 'tween',
+                      ease: 'easeOut',
+                    }
+              }
+              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
+              whileHover={
+                isMobile
+                  ? undefined
+                  : {
+                      scale: 1.03,
+                      rotate: 1,
+                      y: -10,
+                      transition: { duration: 0.3 },
+                    }
+              }
+              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl hidden md:block"
               style={{ transformOrigin: 'center center' }}
             >
               <Image
