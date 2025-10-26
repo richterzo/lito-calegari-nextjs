@@ -52,10 +52,24 @@ select {
   outline-offset: 2px;
 }
 
-/* Smooth image loading */
+/* Smooth image loading and prevent layout shift */
 img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Prevent layout shift for Next.js Image */
+img[loading='lazy'] {
+  content-visibility: auto;
+}
+
+/* Aspect ratio preservation */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
 }
 
 /* Hardware acceleration for animations */
@@ -909,12 +923,11 @@ body {
     filter: none !important;
   }
 
-  /* Disable ALL framer-motion animations on mobile */
+  /* Simplify framer-motion animations on mobile */
   [class*='motion'],
   [data-projection-id] {
-    animation: none !important;
-    transition: none !important;
-    will-change: auto !important;
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
   }
 
   /* Optimize image rendering */
@@ -985,6 +998,21 @@ body {
   div[class*='max-w'] {
     transform: translateZ(0);
     will-change: auto;
+  }
+
+  /* Optimize transform animations */
+  .hover\\:scale-110:hover,
+  .group-hover\\:scale-110 {
+    transform: scale(1.02) !important;
+  }
+
+  /* Reduce paint complexity */
+  .backdrop-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
 

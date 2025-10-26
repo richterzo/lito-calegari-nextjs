@@ -131,13 +131,14 @@ const HomePage = () => {
         className="fixed top-0 left-0 right-0 z-50 glass shadow-premium"
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="Torna alla home">
             <Image
               src="/Logo-LitoCalegari.png"
               alt="Lito Calegari"
               width={120}
               height={40}
               className="h-10 w-auto"
+              priority
             />
           </Link>
 
@@ -195,6 +196,8 @@ const HomePage = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2"
+            aria-label={isMobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -817,7 +820,9 @@ const HomePage = () => {
                 src="/images/Artboard-1-1-scaled.png"
                 alt="Portfolio 1"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               {/* Premium Overlay */}
               <motion.div
@@ -865,7 +870,9 @@ const HomePage = () => {
                 src="/images/banner_cat_magazines_01_d.jpg"
                 alt="Portfolio 2"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
+                loading="lazy"
               />
             </motion.div>
 
@@ -893,7 +900,9 @@ const HomePage = () => {
                 src="/images/Artboard-13-scaled.png"
                 alt="Portfolio 3"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                loading="lazy"
               />
             </motion.div>
 
@@ -921,7 +930,9 @@ const HomePage = () => {
                 src="/images/Artboard-16-scaled.png"
                 alt="Portfolio 4"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                loading="lazy"
               />
             </motion.div>
 
@@ -949,7 +960,9 @@ const HomePage = () => {
                 src="/images/homepage_4-2.webp"
                 alt="Portfolio 5"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                loading="lazy"
               />
             </motion.div>
           </div>
@@ -1683,7 +1696,9 @@ const HomePage = () => {
                       src={item.image}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
                     />
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -2015,11 +2030,11 @@ const HomePage = () => {
 
               {/* Title words - Static */}
               <div className="mb-6 md:mb-8">
-                <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
                   Stampa
                   <br className="md:hidden" /> Personalizzazione
                   <br className="md:hidden" /> Passione
-                </h3>
+                </h2>
               </div>
 
               {/* Description - Static text always */}
@@ -2172,6 +2187,7 @@ const HomePage = () => {
                     width={logo.width}
                     height={logo.height}
                     className="object-contain grayscale group-hover:grayscale-0 transition-all duration-400"
+                    loading="lazy"
                   />
                 </motion.div>
               </motion.div>
@@ -2296,6 +2312,7 @@ const HomePage = () => {
                           width={100}
                           height={100}
                           className="rounded-full shadow-2xl ring-4 ring-[#C6D92E]/30"
+                          loading="lazy"
                         />
                         {/* Badge */}
                         <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#C6D92E] rounded-full flex items-center justify-center shadow-lg">
@@ -2378,7 +2395,7 @@ const HomePage = () => {
             </div>
 
             {/* Swipe indicator for mobile */}
-            <div className="md:hidden text-center mt-6 text-sm text-gray-400 flex items-center justify-center gap-2">
+            <div className="md:hidden text-center mt-6 text-sm text-gray-600 flex items-center justify-center gap-2">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -2455,6 +2472,7 @@ const HomePage = () => {
                   width={120}
                   height={40}
                   className="h-10 w-auto filter brightness-0 invert"
+                  loading="lazy"
                 />
               </motion.div>
             </div>
