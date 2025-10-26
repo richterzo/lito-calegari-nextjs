@@ -615,15 +615,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <div style={{ minHeight: '60vh' }}>
             {/* Overline - Enhanced */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: 0,
-              }}
-              className="mb-8 flex items-center justify-center gap-3"
-            >
+            <div className="mb-8 flex items-center justify-center gap-3">
               {!isMobile && (
                 <motion.div
                   className="h-px w-12 bg-gradient-to-r from-transparent to-[#C6D92E]"
@@ -643,16 +635,10 @@ const HomePage = () => {
                   transition={{ duration: 0.8, delay: 0.6 }}
                 />
               )}
-            </motion.div>
+            </div>
 
-            {/* Main Headline - Semibold Typography */}
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: 0,
-              }}
+            {/* Main Headline - Semibold Typography - No animation for Speed Index */}
+            <h1
               className="mb-8 leading-[0.95]"
               style={{
                 fontSize: 'clamp(2.8rem, 9vw, 8rem)',
@@ -681,16 +667,10 @@ const HomePage = () => {
               >
                 stampa
               </span>
-            </motion.h1>
+            </h1>
 
-            {/* Description - Better Typography */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.1,
-              }}
+            {/* Description - Better Typography - No animation for LCP */}
+            <p
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
               style={{
                 lineHeight: 1.7,
@@ -701,18 +681,10 @@ const HomePage = () => {
               Dalla progettazione grafica alla stampa di alta qualità, offriamo
               soluzioni creative e su misura per valorizzare la tua
               comunicazione
-            </motion.p>
+            </p>
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.2,
-              }}
-              className="mt-12"
-            >
+            {/* CTA Button - No animation for Speed Index */}
+            <div className="mt-12">
               <Link
                 href="/contatti"
                 className="inline-block bg-[#C6D92E] text-black px-8 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#B8C526] transition-all duration-300 hover:scale-105 hover:shadow-xl"
@@ -726,7 +698,7 @@ const HomePage = () => {
               >
                 CONTATTACI
               </Link>
-            </motion.div>
+            </div>
 
             {/* Scroll Indicator - Enhanced */}
             <motion.div
