@@ -728,10 +728,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* IMAGE GALLERY - Angled layout from screenshot */}
+      {/* IMAGE GALLERY - 5 images on mobile, angled layout on desktop */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
             {/* Image 1 - Rotated left with premium overlay */}
             <motion.div
               initial={{ opacity: 0, y: 80, rotate: -10, scale: 0.8 }}
@@ -1450,70 +1450,6 @@ const HomePage = () => {
                 e di prestigio, offrendo nuove possibilità creative per
                 valorizzare la tua comunicazione.
               </p>
-            </div>
-          </div>
-
-          {/* Mobile: Portfolio Carousel - Auto-scrolling infinite loop */}
-          <div className="lg:hidden mt-16">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{}}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center"
-            >
-              Portfolio
-            </motion.h3>
-
-            <div className="relative overflow-hidden">
-              {/* Auto-scrolling carousel - seamless infinite loop */}
-              <motion.div
-                className="flex gap-4"
-                animate={{
-                  x: [0, -1360],
-                }}
-                transition={{
-                  duration: 25,
-                  repeat: Infinity,
-                  ease: 'linear',
-                  repeatType: 'loop',
-                }}
-              >
-                {/* Portfolio Images - Duplicate all 5 for seamless loop */}
-                {[
-                  { src: '/images/unsplash-branding-1.jpg', alt: 'Branding' },
-                  { src: '/images/unsplash-design-1.jpg', alt: 'Design' },
-                  { src: '/images/unsplash-packaging-1.jpg', alt: 'Packaging' },
-                  { src: '/images/unsplash-print-1.jpg', alt: 'Print' },
-                  {
-                    src: '/images/unsplash-typography-1.jpg',
-                    alt: 'Typography',
-                  },
-                  // Duplicate for seamless loop
-                  { src: '/images/unsplash-branding-1.jpg', alt: 'Branding' },
-                  { src: '/images/unsplash-design-1.jpg', alt: 'Design' },
-                  { src: '/images/unsplash-packaging-1.jpg', alt: 'Packaging' },
-                  { src: '/images/unsplash-print-1.jpg', alt: 'Print' },
-                  {
-                    src: '/images/unsplash-typography-1.jpg',
-                    alt: 'Typography',
-                  },
-                ].map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="relative flex-shrink-0 w-64 h-64 rounded-lg overflow-hidden shadow-lg border-2 border-black"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                      sizes="256px"
-                    />
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </div>
 
