@@ -901,6 +901,44 @@ body {
   [style*='blur'] {
     filter: blur(15px) !important;
   }
+
+  /* GPU acceleration for smooth scrolling */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Disable heavy animations on scroll */
+  [class*='motion'] {
+    will-change: auto !important;
+  }
+
+  /* Optimize image rendering */
+  img {
+    transform: translateZ(0);
+  }
+
+  /* Reduce gradient complexity */
+  [class*='gradient'] {
+    background-attachment: scroll !important;
+  }
+
+  /* Simplify shadows on mobile */
+  .shadow-2xl {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Optimize touch scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize sections for smooth scrolling */
+  section {
+    contain: layout style paint;
+  }
 }
 
 /* Tablet optimizations */

@@ -66,7 +66,7 @@ const HomePage = () => {
     {
       name: 'Antonio Tricarico',
       text: 'Preparati e attenti al più piccolo dettaglio, mi hanno sempre proposto la soluzione migliore a fronte dei vincoli di tempi e costi. Consigliato ad occhi chiusi.',
-      avatar: '/images/9434619-scaled-254x254.jpg',
+      avatar: '/images/9439727-scaled-254x254.jpg',
     },
   ]
 
@@ -246,7 +246,7 @@ const HomePage = () => {
         {/* Blueprint Paper Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-yellow-50/20" />
 
-        {/* Animated Typography Bands - 2 Bands + Center Text */}
+        {/* Animated Typography Bands - 2 Bands + Center Text (slower on mobile) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Band 1 - Top */}
           <motion.div
@@ -255,7 +255,7 @@ const HomePage = () => {
               x: ['-100%', '100%'],
             }}
             transition={{
-              duration: 100,
+              duration: isMobile ? 200 : 100,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -277,7 +277,7 @@ const HomePage = () => {
               x: ['100%', '-100%'],
             }}
             transition={{
-              duration: 110,
+              duration: isMobile ? 220 : 110,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -318,13 +318,15 @@ const HomePage = () => {
           }}
         />
 
-        {/* Print registration marks (corner marks) */}
+        {/* Print registration marks (corner marks - static on mobile) */}
         <div className="absolute inset-0 pointer-events-none opacity-5">
           {/* Top left */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{ duration: 4, repeat: Infinity }}
+            animate={
+              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
+            }
+            transition={{ duration: 4, repeat: isMobile ? 0 : Infinity }}
             className="absolute top-8 left-8"
           >
             <svg width="40" height="40" viewBox="0 0 40 40">
@@ -374,8 +376,14 @@ const HomePage = () => {
           {/* Top right */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+            animate={
+              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
+            }
+            transition={{
+              duration: 4,
+              repeat: isMobile ? 0 : Infinity,
+              delay: 1,
+            }}
             className="absolute top-8 right-8"
           >
             <svg width="40" height="40" viewBox="0 0 40 40">
@@ -425,8 +433,14 @@ const HomePage = () => {
           {/* Bottom left */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+            animate={
+              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
+            }
+            transition={{
+              duration: 4,
+              repeat: isMobile ? 0 : Infinity,
+              delay: 2,
+            }}
             className="absolute bottom-8 left-8"
           >
             <svg width="40" height="40" viewBox="0 0 40 40">
@@ -476,8 +490,14 @@ const HomePage = () => {
           {/* Bottom right */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{ duration: 4, repeat: Infinity, delay: 3 }}
+            animate={
+              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
+            }
+            transition={{
+              duration: 4,
+              repeat: isMobile ? 0 : Infinity,
+              delay: 3,
+            }}
             className="absolute bottom-8 right-8"
           >
             <svg width="40" height="40" viewBox="0 0 40 40">
@@ -1708,18 +1728,17 @@ const HomePage = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: 'easeOut',
+                  duration: 0.4,
+                  delay: isMobile ? 0 : index * 0.05,
                 }}
-                viewport={{}}
+                viewport={{ once: true }}
                 className="group"
               >
                 <motion.div
-                  whileHover={{ y: -12 }}
+                  whileHover={isMobile ? {} : { y: -8 }}
                   transition={{ duration: 0.3 }}
                   className="cursor-pointer"
                 >
@@ -1728,17 +1747,10 @@ const HomePage = () => {
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {/* Shine effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      initial={{ x: '-100%', opacity: 0 }}
-                      whileHover={{ x: '200%', opacity: 1 }}
-                      transition={{ duration: 0.8 }}
-                    />
                   </div>
                   <h3 className="text-lg font-bold text-center text-gray-900 group-hover:text-[#C6D92E] transition-colors duration-300">
                     {item.title}
@@ -1786,11 +1798,11 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
+                  duration: 0.4,
+                  delay: isMobile ? 0 : index * 0.03,
                 }}
-                viewport={{}}
-                whileHover={{ y: -8 }}
+                viewport={{ once: true }}
+                whileHover={isMobile ? {} : { y: -5 }}
                 className="relative group"
               >
                 <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 h-full flex flex-col items-center justify-center text-center transition-all duration-300 group-hover:border-[#C6D92E] group-hover:shadow-lg group-hover:shadow-[#C6D92E]/10">
@@ -2096,23 +2108,27 @@ const HomePage = () => {
                 )}
               </motion.div>
 
-              {/* Description with typewriter effect */}
+              {/* Description with typewriter effect (disabled on mobile for performance) */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{}}
+                viewport={{ once: true }}
                 className="text-xl md:text-2xl leading-relaxed text-gray-300"
               >
-                <TypeWriter
-                  text="La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto."
-                  speed={30}
-                  delay={500}
-                />
+                {isMobile ? (
+                  'La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto.'
+                ) : (
+                  <TypeWriter
+                    text="La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto."
+                    speed={30}
+                    delay={500}
+                  />
+                )}
               </motion.p>
             </motion.div>
 
-            {/* Visual Side - Enhanced Cards */}
+            {/* Visual Side - Enhanced Cards (optimized for mobile) */}
             <div className="grid grid-cols-2 gap-6">
               {[
                 {
@@ -2138,26 +2154,13 @@ const HomePage = () => {
               ].map((card, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: card.delay }}
-                  viewport={{}}
-                  whileHover={{ scale: 1.05, rotate: 2, y: -10 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  viewport={{ once: true }}
+                  whileHover={isMobile ? {} : { scale: 1.05, y: -10 }}
                   className={`relative h-48 bg-gradient-to-br ${card.gradient} rounded-3xl shadow-2xl overflow-hidden cursor-pointer`}
                 >
-                  {/* Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent"
-                    animate={{
-                      x: ['-100%', '200%'],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: 'linear',
-                      delay: index * 0.5,
-                    }}
-                  />
                   {/* Icon */}
                   <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-30">
                     {card.icon}
@@ -2244,14 +2247,17 @@ const HomePage = () => {
             ].map((logo, index) => (
               <motion.div
                 key={logo.name}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{}}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: isMobile ? 0 : index * 0.08,
+                }}
+                viewport={{ once: true }}
                 className="group"
               >
                 <motion.div
-                  whileHover={{ scale: 1.15, y: -8 }}
+                  whileHover={isMobile ? {} : { scale: 1.1, y: -5 }}
                   transition={{ duration: 0.3 }}
                   className="relative p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
                 >
@@ -2260,14 +2266,7 @@ const HomePage = () => {
                     alt={logo.name}
                     width={logo.width}
                     height={logo.height}
-                    className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  {/* Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-2xl"
-                    initial={{ x: '-100%', opacity: 0 }}
-                    whileHover={{ x: '200%', opacity: 1 }}
-                    transition={{ duration: 0.8 }}
+                    className="object-contain grayscale group-hover:grayscale-0 transition-all duration-400"
                   />
                 </motion.div>
               </motion.div>
@@ -2278,33 +2277,37 @@ const HomePage = () => {
 
       {/* TESTIMONIALS - Premium Enhanced Version */}
       <section className="min-h-screen flex items-center justify-center py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-[#C6D92E] rounded-full blur-[120px] opacity-10"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 30, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-72 h-72 bg-black rounded-full blur-[120px] opacity-5"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+        {/* Decorative elements (static on mobile) */}
+        {!isMobile && (
+          <>
+            <motion.div
+              className="absolute top-20 left-10 w-72 h-72 bg-[#C6D92E] rounded-full blur-[120px] opacity-10"
+              animate={{
+                scale: [1, 1.2, 1],
+                x: [0, 30, 0],
+                y: [0, -30, 0],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="absolute bottom-20 right-10 w-72 h-72 bg-black rounded-full blur-[120px] opacity-5"
+              animate={{
+                scale: [1, 1.3, 1],
+                x: [0, -30, 0],
+                y: [0, 30, 0],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+          </>
+        )}
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Section Header */}
