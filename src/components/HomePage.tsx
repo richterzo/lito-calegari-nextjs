@@ -726,6 +726,21 @@ const HomePage = () => {
               comunicazione
             </motion.p>
 
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="mt-12"
+            >
+              <Link
+                href="/contatti"
+                className="inline-block bg-[#C6D92E] text-black px-8 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#B8C526] transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                CONTATTACI
+              </Link>
+            </motion.div>
+
             {/* Scroll Indicator - Enhanced */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -2237,27 +2252,33 @@ const HomePage = () => {
             </motion.p>
           </div>
 
-          {/* Testimonial Card - Swipeable on mobile */}
+          {/* Testimonial Card - Simplified for mobile */}
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentTestimonial}
-                initial={{ opacity: 0, x: 100, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -100, scale: 0.95 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                drag="x"
+                initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: isMobile ? -50 : -100 }}
+                transition={{
+                  duration: isMobile ? 0.3 : 0.5,
+                  ease: 'easeInOut',
+                }}
+                drag={isMobile ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
+                dragElastic={0.3}
                 onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = Math.abs(offset.x) * velocity.x
-                  if (swipe > 10000) {
-                    nextTestimonial()
-                  } else if (swipe < -10000) {
+                  if (!isMobile) return
+                  const swipe = offset.x * velocity.x
+                  if (swipe > 5000) {
                     prevTestimonial()
+                  } else if (swipe < -5000) {
+                    nextTestimonial()
                   }
                 }}
-                className="relative bg-white p-8 md:p-12 rounded-3xl shadow-2xl cursor-grab active:cursor-grabbing touch-pan-y"
+                className={`relative bg-white p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-lg md:shadow-2xl ${
+                  isMobile ? 'cursor-grab active:cursor-grabbing' : ''
+                }`}
               >
                 {/* Quote Icon */}
                 <div className="absolute top-8 left-8 text-[#C6D92E] opacity-20 text-7xl font-serif">
@@ -2266,18 +2287,8 @@ const HomePage = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row items-start gap-8 mb-8">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.3,
-                        type: 'spring',
-                        stiffness: 200,
-                      }}
-                      className="flex-shrink-0"
-                    >
+                  <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8 mb-6 md:mb-8">
+                    <div className="flex-shrink-0">
                       <div className="relative">
                         <Image
                           src={testimonials[currentTestimonial].avatar}
@@ -2297,25 +2308,15 @@ const HomePage = () => {
                           </svg>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
 
                     <div className="flex-1">
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-gray-700 text-xl leading-relaxed mb-6"
-                        style={{ lineHeight: 1.8 }}
-                      >
+                      <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4 md:mb-6">
                         "{testimonials[currentTestimonial].text}"
-                      </motion.p>
+                      </p>
 
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                      >
-                        <p className="font-bold text-xl text-gray-900">
+                      <div>
+                        <p className="font-bold text-lg md:text-xl text-gray-900">
                           {testimonials[currentTestimonial].name}
                         </p>
                         {/* Stars */}
@@ -2331,7 +2332,7 @@ const HomePage = () => {
                             </svg>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2342,52 +2343,42 @@ const HomePage = () => {
             </AnimatePresence>
 
             {/* Navigation - Mobile Optimized */}
-            <div className="flex justify-center items-center gap-4 md:gap-6 mt-10">
-              <motion.button
-                whileHover={{ scale: 1.1, x: -3 }}
-                whileTap={{ scale: 0.95 }}
+            <div className="flex justify-center items-center gap-4 md:gap-6 mt-8 md:mt-10">
+              <button
                 onClick={prevTestimonial}
-                className="group w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#C6D92E] hover:text-black transition-all duration-300 shadow-xl touch-manipulation"
+                className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#C6D92E] hover:text-black transition-colors duration-300 shadow-lg touch-manipulation active:scale-95"
                 aria-label="Testimonial precedente"
               >
-                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:animate-pulse" />
-              </motion.button>
+                <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
+              </button>
 
               {/* Dots indicator - Larger on mobile */}
-              <div className="flex gap-2 md:gap-3">
+              <div className="flex gap-2.5 md:gap-3">
                 {testimonials.map((_, index) => (
-                  <motion.button
+                  <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`h-2.5 md:h-3 rounded-full transition-all duration-300 touch-manipulation ${
+                    className={`h-3 md:h-3 rounded-full transition-all duration-300 touch-manipulation active:scale-90 ${
                       index === currentTestimonial
-                        ? 'w-8 md:w-10 bg-[#C6D92E]'
-                        : 'w-2.5 md:w-3 bg-gray-300 hover:bg-gray-400'
+                        ? 'w-10 md:w-12 bg-[#C6D92E]'
+                        : 'w-3 md:w-3 bg-gray-300'
                     }`}
                     aria-label={`Vai al testimonial ${index + 1}`}
                   />
                 ))}
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.1, x: 3 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={nextTestimonial}
-                className="group w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#C6D92E] hover:text-black transition-all duration-300 shadow-xl touch-manipulation"
+                className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#C6D92E] hover:text-black transition-colors duration-300 shadow-lg touch-manipulation active:scale-95"
                 aria-label="Testimonial successivo"
               >
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:animate-pulse" />
-              </motion.button>
+                <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
+              </button>
             </div>
 
             {/* Swipe indicator for mobile */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="md:hidden text-center mt-6 text-sm text-gray-400 flex items-center justify-center gap-2"
-            >
+            <div className="md:hidden text-center mt-6 text-sm text-gray-400 flex items-center justify-center gap-2">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -2415,7 +2406,7 @@ const HomePage = () => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
