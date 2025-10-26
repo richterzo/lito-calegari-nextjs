@@ -732,228 +732,249 @@ const HomePage = () => {
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
-            {/* Image 1 - Rotated left with premium overlay - No animations on mobile */}
-            <motion.div
-              initial={
-                isMobile ? {} : { opacity: 0, y: 80, rotate: -10, scale: 0.8 }
-              }
-              whileInView={
-                isMobile ? {} : { opacity: 1, y: 0, rotate: -4, scale: 1 }
-              }
-              transition={
-                isMobile
-                  ? undefined
-                  : {
-                      duration: 0.6,
-                      type: 'tween',
-                      ease: 'easeOut',
-                      delay: 0,
-                    }
-              }
-              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
-              whileHover={
-                isMobile
-                  ? undefined
-                  : {
-                      scale: 1.05,
-                      rotate: 0,
-                      y: -10,
-                      transition: {
-                        duration: 0.3,
-                        ease: 'easeOut',
-                      },
-                    }
-              }
-              className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg cursor-pointer"
-              style={{
-                transformOrigin: 'center center',
-              }}
-            >
-              <Image
-                src="/images/Artboard-1-1-scaled.png"
-                alt="Portfolio 1"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              {/* Premium Overlay */}
+            {/* Image 1 - Static on mobile, animated on desktop */}
+            {isMobile ? (
+              <div className="relative h-72 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/Artboard-1-1-scaled.png"
+                  alt="Portfolio 1"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
               <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6"
+                initial={{ opacity: 0, y: 80, rotate: -10, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, rotate: -4, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  type: 'tween',
+                  ease: 'easeOut',
+                  delay: 0,
+                }}
+                viewport={{ margin: '-100px', once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: 0,
+                  y: -10,
+                  transition: {
+                    duration: 0.3,
+                    ease: 'easeOut',
+                  },
+                }}
+                className="group relative h-96 rounded-3xl overflow-hidden shadow-premium-lg cursor-pointer"
+                style={{
+                  transformOrigin: 'center center',
+                }}
               >
+                <Image
+                  src="/images/Artboard-1-1-scaled.png"
+                  alt="Portfolio 1"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Premium Overlay */}
                 <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileHover={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6"
                 >
-                  <h2 className="text-white font-bold text-xl mb-2">
-                    Biglietti da Visita
-                  </h2>
-                  <p className="text-white/80 text-sm">
-                    Design personalizzato e stampa di qualità
-                  </p>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileHover={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <h2 className="text-white font-bold text-xl mb-2">
+                      Biglietti da Visita
+                    </h2>
+                    <p className="text-white/80 text-sm">
+                      Design personalizzato e stampa di qualità
+                    </p>
+                  </motion.div>
                 </motion.div>
+                {/* Shine effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '200%' }}
+                  transition={{ duration: 0.8 }}
+                />
               </motion.div>
-              {/* Shine effect */}
+            )}
+
+            {/* Image 2 - Static on mobile, animated on desktop */}
+            {isMobile ? (
+              <div className="relative h-72 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/banner_cat_magazines_01_d.jpg"
+                  alt="Portfolio 2"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '200%' }}
-                transition={{ duration: 0.8 }}
-              />
-            </motion.div>
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1,
+                  type: 'tween',
+                  ease: 'easeOut',
+                }}
+                viewport={{ margin: '-100px', once: true }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -10,
+                  transition: { duration: 0.3 },
+                }}
+                className="relative h-96 rounded-2xl overflow-hidden shadow-xl col-span-1"
+              >
+                <Image
+                  src="/images/banner_cat_magazines_01_d.jpg"
+                  alt="Portfolio 2"
+                  fill
+                  sizes="33vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            )}
 
-            {/* Image 2 - Center (larger) - Optimized */}
-            <motion.div
-              initial={isMobile ? {} : { opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={isMobile ? {} : { opacity: 1, y: 0, scale: 1 }}
-              transition={
-                isMobile
-                  ? undefined
-                  : {
-                      duration: 0.5,
-                      delay: 0.1,
-                      type: 'tween',
-                      ease: 'easeOut',
-                    }
-              }
-              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
-              whileHover={
-                isMobile
-                  ? undefined
-                  : {
-                      scale: 1.03,
-                      y: -10,
-                      transition: { duration: 0.3 },
-                    }
-              }
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl col-span-1"
-            >
-              <Image
-                src="/images/banner_cat_magazines_01_d.jpg"
-                alt="Portfolio 2"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </motion.div>
+            {/* Image 3 - Static on mobile, animated on desktop */}
+            {isMobile ? (
+              <div className="relative h-72 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/Artboard-13-scaled.png"
+                  alt="Portfolio 3"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 50, rotate: 8 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 4 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2,
+                  type: 'tween',
+                  ease: 'easeOut',
+                }}
+                viewport={{ margin: '-100px', once: true }}
+                whileHover={{
+                  scale: 1.03,
+                  rotate: 2,
+                  y: -10,
+                  transition: { duration: 0.3 },
+                }}
+                className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
+                style={{ transformOrigin: 'center center' }}
+              >
+                <Image
+                  src="/images/Artboard-13-scaled.png"
+                  alt="Portfolio 3"
+                  fill
+                  sizes="50vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            )}
 
-            {/* Image 3 - Rotated right - Optimized */}
-            <motion.div
-              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: 8 }}
-              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: 4 }}
-              transition={
-                isMobile
-                  ? undefined
-                  : {
-                      duration: 0.5,
-                      delay: 0.2,
-                      type: 'tween',
-                      ease: 'easeOut',
-                    }
-              }
-              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
-              whileHover={
-                isMobile
-                  ? undefined
-                  : {
-                      scale: 1.03,
-                      rotate: 2,
-                      y: -10,
-                      transition: { duration: 0.3 },
-                    }
-              }
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl"
-              style={{ transformOrigin: 'center center' }}
-            >
-              <Image
-                src="/images/Artboard-13-scaled.png"
-                alt="Portfolio 3"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </motion.div>
+            {/* Image 4 - Static on mobile, animated on desktop */}
+            {isMobile ? (
+              <div className="relative h-72 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/Artboard-16-scaled.png"
+                  alt="Portfolio 4"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 50, rotate: -8 }}
+                whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.3,
+                  type: 'tween',
+                  ease: 'easeOut',
+                }}
+                viewport={{ margin: '-100px', once: true }}
+                whileHover={{
+                  scale: 1.03,
+                  rotate: -1,
+                  y: -10,
+                  transition: { duration: 0.3 },
+                }}
+                className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
+                style={{ transformOrigin: 'center center' }}
+              >
+                <Image
+                  src="/images/Artboard-16-scaled.png"
+                  alt="Portfolio 4"
+                  fill
+                  sizes="50vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            )}
 
-            {/* Image 4 - Rotated left - Optimized */}
-            <motion.div
-              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: -8 }}
-              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: -3 }}
-              transition={
-                isMobile
-                  ? undefined
-                  : {
-                      duration: 0.5,
-                      delay: 0.3,
-                      type: 'tween',
-                      ease: 'easeOut',
-                    }
-              }
-              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
-              whileHover={
-                isMobile
-                  ? undefined
-                  : {
-                      scale: 1.03,
-                      rotate: -1,
-                      y: -10,
-                      transition: { duration: 0.3 },
-                    }
-              }
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl hidden md:block"
-              style={{ transformOrigin: 'center center' }}
-            >
-              <Image
-                src="/images/Artboard-16-scaled.png"
-                alt="Portfolio 4"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </motion.div>
-
-            {/* Image 5 - Rotated right - Optimized */}
-            <motion.div
-              initial={isMobile ? {} : { opacity: 0, y: 50, rotate: 8 }}
-              whileInView={isMobile ? {} : { opacity: 1, y: 0, rotate: 3 }}
-              transition={
-                isMobile
-                  ? undefined
-                  : {
-                      duration: 0.5,
-                      delay: 0.4,
-                      type: 'tween',
-                      ease: 'easeOut',
-                    }
-              }
-              viewport={isMobile ? undefined : { margin: '-100px', once: true }}
-              whileHover={
-                isMobile
-                  ? undefined
-                  : {
-                      scale: 1.03,
-                      rotate: 1,
-                      y: -10,
-                      transition: { duration: 0.3 },
-                    }
-              }
-              className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl hidden md:block"
-              style={{ transformOrigin: 'center center' }}
-            >
-              <Image
-                src="/images/homepage_4-2.webp"
-                alt="Portfolio 5"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </motion.div>
+            {/* Image 5 - Static on mobile, animated on desktop */}
+            {isMobile ? (
+              <div className="relative h-72 rounded-3xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/homepage_4-2.webp"
+                  alt="Portfolio 5"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 50, rotate: 8 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 3 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.4,
+                  type: 'tween',
+                  ease: 'easeOut',
+                }}
+                viewport={{ margin: '-100px', once: true }}
+                whileHover={{
+                  scale: 1.03,
+                  rotate: 1,
+                  y: -10,
+                  transition: { duration: 0.3 },
+                }}
+                className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
+                style={{ transformOrigin: 'center center' }}
+              >
+                <Image
+                  src="/images/homepage_4-2.webp"
+                  alt="Portfolio 5"
+                  fill
+                  sizes="50vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
