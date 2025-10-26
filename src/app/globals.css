@@ -945,12 +945,9 @@ body {
     content-visibility: auto;
   }
 
-  /* Disable hover effects on mobile */
-  .group:hover,
-  .hover\\:bg-\\[\\#C6D92E\\]:hover,
-  .hover\\:rounded-2xl:hover {
-    background-color: inherit !important;
-    border-radius: inherit !important;
+  /* Disable hover effects on mobile - using attribute selector */
+  .group:hover {
+    pointer-events: none;
   }
 
   /* Simplify SVG rendering */
