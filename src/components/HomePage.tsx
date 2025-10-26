@@ -214,7 +214,7 @@ const HomePage = () => {
       </header>
 
       {/* HERO SECTION - With Animated Typography Background */}
-      <section 
+      <section
         className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
         style={{ minHeight: '100vh' }}
       >
@@ -256,11 +256,14 @@ const HomePage = () => {
           </div>
         )}
 
-        {/* Center Text - STAMPA (always visible) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
-          <h1 className="font-bold text-[20vw] md:text-[25vw] text-gray-900 whitespace-nowrap">
+        {/* Center Text - STAMPA (always visible) - Decorative only */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="font-bold text-[20vw] md:text-[25vw] text-gray-900 whitespace-nowrap">
             STAMPA
-          </h1>
+          </div>
         </div>
 
         {/* Technical Blueprint Grid */}
@@ -662,6 +665,8 @@ const HomePage = () => {
                 className="block text-gray-900"
                 style={{
                   fontWeight: 600,
+                  minHeight: 'clamp(2.8rem, 9vw, 8rem)',
+                  display: 'block',
                 }}
               >
                 Studio grafico e
@@ -670,6 +675,8 @@ const HomePage = () => {
                 className="block mt-2 text-gray-900"
                 style={{
                   fontWeight: 600,
+                  minHeight: 'clamp(2.8rem, 9vw, 8rem)',
+                  display: 'block',
                 }}
               >
                 stampa
@@ -688,6 +695,7 @@ const HomePage = () => {
               style={{
                 lineHeight: 1.7,
                 fontWeight: 400,
+                minHeight: 'clamp(4rem, 10vw, 6rem)',
               }}
             >
               Dalla progettazione grafica alla stampa di alta qualità, offriamo
@@ -708,6 +716,13 @@ const HomePage = () => {
               <Link
                 href="/contatti"
                 className="inline-block bg-[#C6D92E] text-black px-8 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#B8C526] transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                style={{
+                  minWidth: '200px',
+                  minHeight: '56px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
               >
                 CONTATTACI
               </Link>
@@ -731,12 +746,12 @@ const HomePage = () => {
                   ease: 'easeInOut',
                 }}
               >
-                <span className="text-xs text-gray-400 tracking-widest uppercase font-medium">
+                <span className="text-xs text-gray-600 tracking-widest uppercase font-medium">
                   Scroll
                 </span>
-                <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center p-2">
+                <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
                   <motion.div
-                    className="w-1.5 h-1.5 bg-gray-400 rounded-full"
+                    className="w-1.5 h-1.5 bg-gray-600 rounded-full"
                     animate={{
                       y: [0, 12, 0],
                       opacity: [1, 0.3, 1],

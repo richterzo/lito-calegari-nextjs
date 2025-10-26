@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font fallback to prevent CLS */
+/* Font fallback to prevent CLS - metrics adjusted to match Poppins */
 @font-face {
   font-family: 'Poppins-fallback';
   src: local('Arial');
-  ascent-override: 105%;
-  descent-override: 35%;
-  line-gap-override: 10%;
-  size-adjust: 95%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
 }
 
 /* Poppins SemiBold as default for headings */
@@ -31,8 +31,8 @@ html {
 }
 
 body {
-  font-family: 'Poppins', 'Poppins-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
+  font-family: 'Poppins', 'Poppins-fallback', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
