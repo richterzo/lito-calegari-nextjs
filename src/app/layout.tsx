@@ -23,12 +23,17 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
-        {/* Preconnect to external domains for faster font loading */}
+        {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        {/* Load fonts with display=swap to reduce CLS */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
         />
       </head>
       <body className="antialiased">{children}</body>

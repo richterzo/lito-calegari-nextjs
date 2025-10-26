@@ -214,7 +214,10 @@ const HomePage = () => {
       </header>
 
       {/* HERO SECTION - With Animated Typography Background */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <section 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+        style={{ minHeight: '100vh' }}
+      >
         {/* Blueprint Paper Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-yellow-50/20" />
 
@@ -607,21 +610,14 @@ const HomePage = () => {
 
         {/* Main content */}
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: isMobile ? 10 : 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: isMobile ? 0.4 : 0.8,
-              delay: isMobile ? 0 : 0.3,
-            }}
-          >
+          <div style={{ minHeight: '60vh' }}>
             {/* Overline - Enhanced */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.3 : 0.8,
-                delay: isMobile ? 0 : 0.5,
+                duration: 0.3,
+                delay: 0,
               }}
               className="mb-8 flex items-center justify-center gap-3"
             >
@@ -651,14 +647,15 @@ const HomePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.2 : 0.5,
-                delay: isMobile ? 0 : 0.3,
+                duration: 0.3,
+                delay: 0,
               }}
               className="mb-8 leading-[0.95]"
               style={{
                 fontSize: 'clamp(2.8rem, 9vw, 8rem)',
                 fontWeight: 600,
                 letterSpacing: '-0.02em',
+                minHeight: 'clamp(5.6rem, 18vw, 16rem)',
               }}
             >
               <span
@@ -684,8 +681,8 @@ const HomePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.2 : 0.5,
-                delay: isMobile ? 0.1 : 0.5,
+                duration: 0.3,
+                delay: 0.1,
               }}
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
               style={{
@@ -703,8 +700,8 @@ const HomePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.2 : 0.5,
-                delay: isMobile ? 0.2 : 0.7,
+                duration: 0.3,
+                delay: 0.2,
               }}
               className="mt-12"
             >
@@ -753,7 +750,7 @@ const HomePage = () => {
                 </div>
               </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
