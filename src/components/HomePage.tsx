@@ -131,7 +131,11 @@ const HomePage = () => {
         className="fixed top-0 left-0 right-0 z-50 glass shadow-premium"
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center" aria-label="Torna alla home">
+          <Link
+            href="/"
+            className="flex items-center"
+            aria-label="Torna alla home"
+          >
             <Image
               src="/Logo-LitoCalegari.png"
               alt="Lito Calegari"

@@ -1000,12 +1000,6 @@ body {
     will-change: auto;
   }
 
-  /* Optimize transform animations */
-  .hover\\:scale-110:hover,
-  .group-hover\\:scale-110 {
-    transform: scale(1.02) !important;
-  }
-
   /* Reduce paint complexity */
   .backdrop-blur,
   .backdrop-blur-sm,
