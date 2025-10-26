@@ -246,44 +246,46 @@ const HomePage = () => {
         {/* Blueprint Paper Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-yellow-50/20" />
 
-        {/* Animated Typography Bands - 2 Bands + Center Text (slower on mobile) */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Band 1 - Top */}
-          <motion.div
-            className="absolute top-[15%] left-0 whitespace-nowrap font-bold text-7xl md:text-9xl text-gray-900 opacity-[0.06]"
-            animate={{
-              x: ['-100%', '100%'],
-            }}
-            transition={{
-              duration: isMobile ? 200 : 100,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          >
-            GRAFICA • DESIGN • CREATIVITÀ • INNOVAZIONE • QUALITÀ •{' '}
-          </motion.div>
+        {/* Animated Typography Bands - Desktop only for performance */}
+        {!isMobile && (
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Band 1 - Top */}
+            <motion.div
+              className="absolute top-[15%] left-0 whitespace-nowrap font-bold text-7xl md:text-9xl text-gray-900 opacity-[0.06]"
+              animate={{
+                x: ['-100%', '100%'],
+              }}
+              transition={{
+                duration: 100,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            >
+              GRAFICA • DESIGN • CREATIVITÀ • INNOVAZIONE • QUALITÀ •{' '}
+            </motion.div>
 
-          {/* Center Text - STAMPA (fixed) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03]">
-            <h1 className="font-bold text-[20vw] md:text-[25vw] text-gray-900 whitespace-nowrap">
-              STAMPA
-            </h1>
+            {/* Band 2 - Bottom (opposite direction) */}
+            <motion.div
+              className="absolute bottom-[15%] right-0 whitespace-nowrap font-bold text-7xl md:text-9xl text-gray-900 opacity-[0.06]"
+              animate={{
+                x: ['100%', '-100%'],
+              }}
+              transition={{
+                duration: 110,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            >
+              OFFSET • DIGITALE • ESPERIENZA • PROFESSIONALITÀ • ARTE •{' '}
+            </motion.div>
           </div>
+        )}
 
-          {/* Band 2 - Bottom (opposite direction) */}
-          <motion.div
-            className="absolute bottom-[15%] right-0 whitespace-nowrap font-bold text-7xl md:text-9xl text-gray-900 opacity-[0.06]"
-            animate={{
-              x: ['100%', '-100%'],
-            }}
-            transition={{
-              duration: isMobile ? 220 : 110,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          >
-            OFFSET • DIGITALE • ESPERIENZA • PROFESSIONALITÀ • ARTE •{' '}
-          </motion.div>
+        {/* Center Text - STAMPA (always visible) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
+          <h1 className="font-bold text-[20vw] md:text-[25vw] text-gray-900 whitespace-nowrap">
+            STAMPA
+          </h1>
         </div>
 
         {/* Technical Blueprint Grid */}
@@ -318,17 +320,16 @@ const HomePage = () => {
           }}
         />
 
-        {/* Print registration marks (corner marks - static on mobile) */}
-        <div className="absolute inset-0 pointer-events-none opacity-5">
-          {/* Top left */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={
-              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
-            }
-            transition={{ duration: 4, repeat: isMobile ? 0 : Infinity }}
-            className="absolute top-8 left-8"
-          >
+        {/* Print registration marks (desktop only for performance) */}
+        {!isMobile && (
+          <div className="absolute inset-0 pointer-events-none opacity-5">
+            {/* Top left */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.05, 0.15, 0.05] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute top-8 left-8"
+            >
             <svg width="40" height="40" viewBox="0 0 40 40">
               <circle
                 cx="20"
@@ -376,12 +377,10 @@ const HomePage = () => {
           {/* Top right */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
-              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
-            }
+            animate={{ opacity: [0.05, 0.15, 0.05] }}
             transition={{
               duration: 4,
-              repeat: isMobile ? 0 : Infinity,
+              repeat: Infinity,
               delay: 1,
             }}
             className="absolute top-8 right-8"
@@ -433,12 +432,10 @@ const HomePage = () => {
           {/* Bottom left */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
-              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
-            }
+            animate={{ opacity: [0.05, 0.15, 0.05] }}
             transition={{
               duration: 4,
-              repeat: isMobile ? 0 : Infinity,
+              repeat: Infinity,
               delay: 2,
             }}
             className="absolute bottom-8 left-8"
@@ -490,12 +487,10 @@ const HomePage = () => {
           {/* Bottom right */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
-              isMobile ? { opacity: 0.08 } : { opacity: [0.05, 0.15, 0.05] }
-            }
+            animate={{ opacity: [0.05, 0.15, 0.05] }}
             transition={{
               duration: 4,
-              repeat: isMobile ? 0 : Infinity,
+              repeat: Infinity,
               delay: 3,
             }}
             className="absolute bottom-8 right-8"
@@ -543,16 +538,18 @@ const HomePage = () => {
               />
             </svg>
           </motion.div>
-        </div>
+          </div>
+        )}
 
-        {/* Giant background text "STAMPA" with print texture */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-          style={{ zIndex: 0 }}
-        >
+        {/* Giant background text "STAMPA" with print texture - Desktop only */}
+        {!isMobile && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+            style={{ zIndex: 0 }}
+          >
           <motion.h2
             className="text-[20vw] md:text-[25vw] font-black text-gray-50 leading-none"
             style={{
@@ -571,9 +568,12 @@ const HomePage = () => {
           >
             STAMPA
           </motion.h2>
-        </motion.div>
+          </motion.div>
+        )}
 
-        {/* CMYK Color blobs - Printing Inks */}
+        {/* CMYK Color blobs - Printing Inks - Desktop only */}
+        {!isMobile && (
+          <>
         <motion.div
           className="absolute top-[15%] left-[8%] w-32 h-32 rounded-full blur-3xl opacity-20"
           style={{ background: 'rgba(0, 183, 235, 0.4)' }} // Cyan
@@ -630,43 +630,49 @@ const HomePage = () => {
             ease: 'easeInOut',
           }}
         />
+          </>
+        )}
 
         {/* Main content */}
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: isMobile ? 10 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0 : 0.3 }}
           >
             {/* Overline - Enhanced */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.5 }}
               className="mb-8 flex items-center justify-center gap-3"
             >
-              <motion.div
-                className="h-px w-12 bg-gradient-to-r from-transparent to-[#C6D92E]"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              />
+              {!isMobile && (
+                <motion.div
+                  className="h-px w-12 bg-gradient-to-r from-transparent to-[#C6D92E]"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                />
+              )}
               <p className="text-xs md:text-sm text-gray-600 tracking-[0.3em] uppercase font-semibold">
                 Dove le tue idee prendono forma
               </p>
-              <motion.div
-                className="h-px w-12 bg-gradient-to-l from-transparent to-[#C6D92E]"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              />
+              {!isMobile && (
+                <motion.div
+                  className="h-px w-12 bg-gradient-to-l from-transparent to-[#C6D92E]"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                />
+              )}
             </motion.div>
 
             {/* Main Headline - Semibold Typography */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.7 }}
               className="mb-8 leading-[0.95]"
               style={{
                 fontSize: 'clamp(2.8rem, 9vw, 8rem)',
@@ -694,9 +700,9 @@ const HomePage = () => {
 
             {/* Description - Better Typography */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.9 }}
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
               style={{
                 lineHeight: 1.7,
