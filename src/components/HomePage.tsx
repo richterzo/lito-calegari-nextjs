@@ -778,9 +778,9 @@ const HomePage = () => {
                   whileHover={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <h3 className="text-white font-bold text-xl mb-2">
+                  <h2 className="text-white font-bold text-xl mb-2">
                     Biglietti da Visita
-                  </h3>
+                  </h2>
                   <p className="text-white/80 text-sm">
                     Design personalizzato e stampa di qualità
                   </p>
@@ -2377,20 +2377,20 @@ const HomePage = () => {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
               <h3 className="font-bold mb-4">I nostri orari</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 Lunedì - Venerdì: 8:00 - 12:00 | 13:00 - 17:00
               </p>
-              <p className="text-gray-400">Sabato: Chiuso</p>
-              <p className="text-gray-400">Domenica: Chiuso</p>
+              <p className="text-gray-300">Sabato: Chiuso</p>
+              <p className="text-gray-300">Domenica: Chiuso</p>
             </div>
             <div>
               <h3 className="font-bold mb-4">Contatti</h3>
-              <p className="text-gray-400">Via del Greto 5</p>
-              <p className="text-gray-400">40132 Bologna</p>
+              <p className="text-gray-300">Via del Greto 5</p>
+              <p className="text-gray-300">40132 Bologna</p>
               <p>
                 <a
                   href="tel:051563660"
-                  className="text-gray-400 hover:text-[#C6D92E] transition-colors"
+                  className="text-gray-300 hover:text-[#C6D92E] transition-colors"
                 >
                   Tel: 051 563660
                 </a>
@@ -2398,7 +2398,7 @@ const HomePage = () => {
               <p>
                 <a
                   href="mailto:info@litocalegari.it"
-                  className="text-gray-400 hover:text-[#C6D92E] transition-colors"
+                  className="text-gray-300 hover:text-[#C6D92E] transition-colors"
                 >
                   Email: info@litocalegari.it
                 </a>
@@ -2420,7 +2420,7 @@ const HomePage = () => {
               </motion.div>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-300 text-sm">
             <p>Copyright © 2025 Lito Calegari. All Rights Reserved.</p>
           </div>
         </div>
