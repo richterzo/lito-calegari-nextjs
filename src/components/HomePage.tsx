@@ -330,214 +330,214 @@ const HomePage = () => {
               transition={{ duration: 4, repeat: Infinity }}
               className="absolute top-8 left-8"
             >
-            <svg width="40" height="40" viewBox="0 0 40 40">
-              <circle
-                cx="20"
-                cy="20"
-                r="15"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="0"
-                x2="20"
-                y2="10"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="30"
-                x2="20"
-                y2="40"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="0"
-                y1="20"
-                x2="10"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="30"
-                y1="20"
-                x2="40"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
-          </motion.div>
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="15"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="0"
+                  x2="20"
+                  y2="10"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="30"
+                  x2="20"
+                  y2="40"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="20"
+                  x2="10"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="30"
+                  y1="20"
+                  x2="40"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </svg>
+            </motion.div>
 
-          {/* Top right */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              delay: 1,
-            }}
-            className="absolute top-8 right-8"
-          >
-            <svg width="40" height="40" viewBox="0 0 40 40">
-              <circle
-                cx="20"
-                cy="20"
-                r="15"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="0"
-                x2="20"
-                y2="10"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="30"
-                x2="20"
-                y2="40"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="0"
-                y1="20"
-                x2="10"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="30"
-                y1="20"
-                x2="40"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
-          </motion.div>
+            {/* Top right */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.05, 0.15, 0.05] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                delay: 1,
+              }}
+              className="absolute top-8 right-8"
+            >
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="15"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="0"
+                  x2="20"
+                  y2="10"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="30"
+                  x2="20"
+                  y2="40"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="20"
+                  x2="10"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="30"
+                  y1="20"
+                  x2="40"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </svg>
+            </motion.div>
 
-          {/* Bottom left */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              delay: 2,
-            }}
-            className="absolute bottom-8 left-8"
-          >
-            <svg width="40" height="40" viewBox="0 0 40 40">
-              <circle
-                cx="20"
-                cy="20"
-                r="15"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="0"
-                x2="20"
-                y2="10"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="30"
-                x2="20"
-                y2="40"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="0"
-                y1="20"
-                x2="10"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="30"
-                y1="20"
-                x2="40"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
-          </motion.div>
+            {/* Bottom left */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.05, 0.15, 0.05] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                delay: 2,
+              }}
+              className="absolute bottom-8 left-8"
+            >
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="15"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="0"
+                  x2="20"
+                  y2="10"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="30"
+                  x2="20"
+                  y2="40"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="20"
+                  x2="10"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="30"
+                  y1="20"
+                  x2="40"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </svg>
+            </motion.div>
 
-          {/* Bottom right */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.15, 0.05] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              delay: 3,
-            }}
-            className="absolute bottom-8 right-8"
-          >
-            <svg width="40" height="40" viewBox="0 0 40 40">
-              <circle
-                cx="20"
-                cy="20"
-                r="15"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="0"
-                x2="20"
-                y2="10"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="20"
-                y1="30"
-                x2="20"
-                y2="40"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="0"
-                y1="20"
-                x2="10"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="30"
-                y1="20"
-                x2="40"
-                y2="20"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
-          </motion.div>
+            {/* Bottom right */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.05, 0.15, 0.05] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                delay: 3,
+              }}
+              className="absolute bottom-8 right-8"
+            >
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="15"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="0"
+                  x2="20"
+                  y2="10"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="20"
+                  y1="30"
+                  x2="20"
+                  y2="40"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="20"
+                  x2="10"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="30"
+                  y1="20"
+                  x2="40"
+                  y2="20"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </svg>
+            </motion.div>
           </div>
         )}
 
@@ -550,86 +550,86 @@ const HomePage = () => {
             className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
             style={{ zIndex: 0 }}
           >
-          <motion.h2
-            className="text-[20vw] md:text-[25vw] font-black text-gray-50 leading-none"
-            style={{
-              letterSpacing: '-0.05em',
-              WebkitTextStroke: '1px rgba(0,0,0,0.01)',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.02)',
-            }}
-            animate={{
-              scale: [1, 1.01, 1],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          >
-            STAMPA
-          </motion.h2>
+            <motion.h2
+              className="text-[20vw] md:text-[25vw] font-black text-gray-50 leading-none"
+              style={{
+                letterSpacing: '-0.05em',
+                WebkitTextStroke: '1px rgba(0,0,0,0.01)',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.02)',
+              }}
+              animate={{
+                scale: [1, 1.01, 1],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              STAMPA
+            </motion.h2>
           </motion.div>
         )}
 
         {/* CMYK Color blobs - Printing Inks - Desktop only */}
         {!isMobile && (
           <>
-        <motion.div
-          className="absolute top-[15%] left-[8%] w-32 h-32 rounded-full blur-3xl opacity-20"
-          style={{ background: 'rgba(0, 183, 235, 0.4)' }} // Cyan
-          animate={{
-            y: [0, -40, 0],
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute top-[25%] right-[10%] w-40 h-40 rounded-full blur-3xl opacity-15"
-          style={{ background: 'rgba(236, 0, 140, 0.4)' }} // Magenta
-          animate={{
-            y: [0, 30, 0],
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-[20%] left-[15%] w-36 h-36 rounded-full blur-3xl opacity-20"
-          style={{ background: 'rgba(198, 217, 46, 0.5)' }} // Yellow (brand color)
-          animate={{
-            y: [0, -35, 0],
-            scale: [1, 1.25, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 11,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-[30%] right-[12%] w-28 h-28 rounded-full blur-3xl opacity-10"
-          style={{ background: 'rgba(0, 0, 0, 0.3)' }} // Black
-          animate={{
-            y: [0, 25, 0],
-            scale: [1, 1.15, 1],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+            <motion.div
+              className="absolute top-[15%] left-[8%] w-32 h-32 rounded-full blur-3xl opacity-20"
+              style={{ background: 'rgba(0, 183, 235, 0.4)' }} // Cyan
+              animate={{
+                y: [0, -40, 0],
+                scale: [1, 1.3, 1],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="absolute top-[25%] right-[10%] w-40 h-40 rounded-full blur-3xl opacity-15"
+              style={{ background: 'rgba(236, 0, 140, 0.4)' }} // Magenta
+              animate={{
+                y: [0, 30, 0],
+                scale: [1, 1.2, 1],
+                opacity: [0.15, 0.25, 0.15],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="absolute bottom-[20%] left-[15%] w-36 h-36 rounded-full blur-3xl opacity-20"
+              style={{ background: 'rgba(198, 217, 46, 0.5)' }} // Yellow (brand color)
+              animate={{
+                y: [0, -35, 0],
+                scale: [1, 1.25, 1],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 11,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="absolute bottom-[30%] right-[12%] w-28 h-28 rounded-full blur-3xl opacity-10"
+              style={{ background: 'rgba(0, 0, 0, 0.3)' }} // Black
+              animate={{
+                y: [0, 25, 0],
+                scale: [1, 1.15, 1],
+                opacity: [0.1, 0.15, 0.1],
+              }}
+              transition={{
+                duration: 9,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
           </>
         )}
 
@@ -638,13 +638,19 @@ const HomePage = () => {
           <motion.div
             initial={{ opacity: 0, y: isMobile ? 10 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0 : 0.3 }}
+            transition={{
+              duration: isMobile ? 0.4 : 0.8,
+              delay: isMobile ? 0 : 0.3,
+            }}
           >
             {/* Overline - Enhanced */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.5 }}
+              transition={{
+                duration: isMobile ? 0.3 : 0.8,
+                delay: isMobile ? 0 : 0.5,
+              }}
               className="mb-8 flex items-center justify-center gap-3"
             >
               {!isMobile && (
@@ -672,7 +678,10 @@ const HomePage = () => {
             <motion.h1
               initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.7 }}
+              transition={{
+                duration: isMobile ? 0.3 : 0.8,
+                delay: isMobile ? 0 : 0.7,
+              }}
               className="mb-8 leading-[0.95]"
               style={{
                 fontSize: 'clamp(2.8rem, 9vw, 8rem)',
@@ -702,7 +711,10 @@ const HomePage = () => {
             <motion.p
               initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.3 : 0.8, delay: isMobile ? 0 : 0.9 }}
+              transition={{
+                duration: isMobile ? 0.3 : 0.8,
+                delay: isMobile ? 0 : 0.9,
+              }}
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
               style={{
                 lineHeight: 1.7,
@@ -1152,22 +1164,13 @@ const HomePage = () => {
             </motion.h2>
           </div>
 
-          {/* Mobile: Simple Grid (no carousel) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden py-12">
+          {/* Mobile: Simple Grid (no carousel) - Full width on mobile */}
+          <div className="grid grid-cols-1 gap-6 lg:hidden py-12">
             {/* Grafica Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group relative bg-white border-2 border-black p-6 rounded-none hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer"
-            >
+            <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
               <div className="relative mb-8 flex justify-end">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
                   <div className="relative z-10 w-20 h-20">
                     {/* Computer/Design Icon */}
@@ -1234,7 +1237,7 @@ const HomePage = () => {
                       />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <h3 className="text-3xl font-bold mb-6 text-black">Grafica</h3>
@@ -1243,30 +1246,13 @@ const HomePage = () => {
                 realizzando progetti grafici dal forte impatto visivo,
                 accompagnandoti in ogni fase della creazione.
               </p>
-
-              {/* Hover border animation */}
-              <motion.div
-                className="absolute inset-0 border-4 border-[#C6D92E]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            </div>
 
             {/* Stampa Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="group relative bg-white border-2 border-black p-6 rounded-none hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer"
-            >
+            <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
               <div className="relative mb-8 flex justify-end">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: -10 }}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
                   <div className="relative z-10 w-20 h-20">
                     {/* Printer Icon */}
@@ -1334,7 +1320,7 @@ const HomePage = () => {
                       <circle cx="68" cy="45" r="3" fill="black" />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <h3 className="text-3xl font-bold mb-6 text-black">Stampa</h3>
@@ -1343,49 +1329,13 @@ const HomePage = () => {
                 consentono di offrirti stampe rapide, di qualità eccellente e
                 rispettose dell&apos;ambiente.
               </p>
-
-              {/* Hover border animation */}
-              <motion.div
-                className="absolute inset-0 border-4 border-[#C6D92E]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            </div>
 
             {/* Finitura Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.2,
-                type: 'spring',
-                stiffness: 100,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                y: -5,
-                backgroundColor: '#C6D92E',
-                borderRadius: '1.5rem',
-                transition: { duration: 0.3 },
-              }}
-              className="group relative bg-white border-2 border-black p-6 md:p-10 rounded-none cursor-pointer overflow-hidden flex-shrink-0"
-              style={{
-                width: isMobile
-                  ? 'calc(100% - 4rem)'
-                  : 'calc(33.333% - 5.333rem)',
-                minWidth: isMobile
-                  ? 'calc(100% - 4rem)'
-                  : 'calc(33.333% - 5.333rem)',
-              }}
-            >
+            <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
               <div className="relative mb-8 flex justify-end">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
                   <div className="relative z-10 w-20 h-20">
                     {/* Diamond/Gem Icon */}
@@ -1454,7 +1404,7 @@ const HomePage = () => {
                       />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <h3 className="text-3xl font-bold mb-6 text-black">Finitura</h3>
@@ -1463,48 +1413,12 @@ const HomePage = () => {
                 dei dettagli, per dare un tocco distintivo e valorizzare al
                 massimo la tua comunicazione.
               </p>
-
-              {/* Hover border animation */}
-              <motion.div
-                className="absolute inset-0 border-4 border-[#C6D92E]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            </div>
 
             {/* Extra Card - 4th Service */}
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.3,
-                type: 'spring',
-                stiffness: 100,
-              }}
-              viewport={{ margin: '-100px' }}
-              whileHover={{
-                y: -5,
-                backgroundColor: '#C6D92E',
-                borderRadius: '1.5rem',
-                transition: { duration: 0.3 },
-              }}
-              className="group relative bg-white border-2 border-black p-6 md:p-10 rounded-none cursor-pointer overflow-hidden flex-shrink-0"
-              style={{
-                width: isMobile
-                  ? 'calc(100% - 4rem)'
-                  : 'calc(33.333% - 5.333rem)',
-                minWidth: isMobile
-                  ? 'calc(100% - 4rem)'
-                  : 'calc(33.333% - 5.333rem)',
-              }}
-            >
+            <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               <div className="relative mb-8 flex justify-end">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: -10 }}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
                   <div className="relative z-10 w-20 h-20">
                     <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -1548,7 +1462,7 @@ const HomePage = () => {
                       />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               <h3 className="text-3xl font-bold mb-6 text-black">Extra</h3>
@@ -1557,14 +1471,7 @@ const HomePage = () => {
                 e di prestigio, offrendo nuove possibilità creative per
                 valorizzare la tua comunicazione.
               </p>
-
-              <motion.div
-                className="absolute inset-0 border-4 border-[#C6D92E]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            </div>
           </div>
 
           {/* Desktop: Carousel */}
@@ -2078,47 +1985,60 @@ const HomePage = () => {
             >
               {/* Label */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{}}
+                transition={{ duration: isMobile ? 0.2 : 0.6 }}
+                viewport={{ once: true }}
                 className="flex items-center gap-3 mb-6"
               >
-                <motion.div
-                  className="h-px w-12 bg-gradient-to-r from-[#C6D92E] to-transparent"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{}}
-                />
+                {!isMobile && (
+                  <motion.div
+                    className="h-px w-12 bg-gradient-to-r from-[#C6D92E] to-transparent"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{}}
+                  />
+                )}
                 <span className="text-sm text-[#C6D92E] tracking-widest uppercase font-semibold">
                   La Nostra Filosofia
                 </span>
               </motion.div>
 
-              {/* Title words animated */}
-              <motion.div className="mb-8">
-                {['Stampa', 'Personalizzazione', 'Passione'].map(
-                  (word, index) => (
-                    <motion.h3
-                      key={word}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.2 }}
-                      viewport={{}}
-                      className="text-4xl md:text-5xl font-bold text-white mb-2"
-                    >
-                      {word}
-                    </motion.h3>
-                  )
+              {/* Title words - No animation on mobile */}
+              <div className="mb-8">
+                {isMobile ? (
+                  <h3 className="text-4xl font-bold text-white mb-2">
+                    Stampa Personalizzazione Passione
+                  </h3>
+                ) : (
+                  <>
+                    {['Stampa', 'Personalizzazione', 'Passione'].map(
+                      (word, index) => (
+                        <motion.h3
+                          key={word}
+                          initial={{ opacity: 0, x: -30 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.2 }}
+                          viewport={{}}
+                          className="text-4xl md:text-5xl font-bold text-white mb-2"
+                        >
+                          {word}
+                        </motion.h3>
+                      )
+                    )}
+                  </>
                 )}
-              </motion.div>
+              </div>
 
               {/* Description with typewriter effect (disabled on mobile for performance) */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{
+                  duration: isMobile ? 0.2 : 0.8,
+                  delay: isMobile ? 0 : 0.6,
+                }}
                 viewport={{ once: true }}
                 className="text-xl md:text-2xl leading-relaxed text-gray-300"
               >
@@ -2134,44 +2054,39 @@ const HomePage = () => {
               </motion.p>
             </motion.div>
 
-            {/* Visual Side - Enhanced Cards (optimized for mobile) */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Visual Side - Static on mobile for performance */}
+            <div
+              className={`grid ${
+                isMobile ? 'grid-cols-2' : 'grid-cols-2'
+              } gap-4 md:gap-6`}
+            >
               {[
                 {
                   gradient: 'from-[#C6D92E] to-[#B8C526]',
-                  delay: 0.1,
                   icon: '🎨',
                 },
                 {
                   gradient: 'from-gray-700 to-gray-900',
-                  delay: 0.2,
                   icon: '🖨️',
                 },
                 {
                   gradient: 'from-gray-800 to-black',
-                  delay: 0.3,
                   icon: '✨',
                 },
                 {
                   gradient: 'from-[#B8C526] to-[#A8B01E]',
-                  delay: 0.4,
                   icon: '📐',
                 },
               ].map((card, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  viewport={{ once: true }}
-                  whileHover={isMobile ? {} : { scale: 1.05, y: -10 }}
-                  className={`relative h-48 bg-gradient-to-br ${card.gradient} rounded-3xl shadow-2xl overflow-hidden cursor-pointer`}
+                  className={`relative h-40 md:h-48 bg-gradient-to-br ${card.gradient} rounded-2xl md:rounded-3xl shadow-lg md:shadow-2xl overflow-hidden`}
                 >
                   {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-30">
+                  <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl opacity-30">
                     {card.icon}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
