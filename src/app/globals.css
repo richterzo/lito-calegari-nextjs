@@ -15,10 +15,9 @@ h6 {
   letter-spacing: -0.02em;
 }
 
-/* Smooth Scroll Snapping */
+/* Smooth Scroll Snapping - Optimized */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
   overflow-x: hidden;
 }
 
@@ -31,12 +30,14 @@ body {
   font-weight: 400;
 }
 
+/* Removed scroll-snap for better mobile performance */
+
+/* Optimize section rendering */
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  isolation: isolate;
 }
 
-/* Smooth Transitions for all interactive elements */
+/* Smooth Transitions for all interactive elements - Reduced on mobile */
 button,
 a,
 input,
@@ -869,14 +870,12 @@ body {
 
 /* Mobile Responsive Optimizations */
 @media (max-width: 768px) {
-  /* Reduce animation complexity on mobile for better performance */
-  .halftone-layer {
-    animation-duration: 30s !important;
-  }
-
-  /* Simplify registration marks on mobile */
-  .registration-mark {
-    opacity: 0.03 !important;
+  /* CRITICAL: Force GPU acceleration for smooth scrolling */
+  * {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   /* Optimize font sizes for mobile */
@@ -890,6 +889,10 @@ body {
     line-height: 1.2;
   }
 
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 2rem) !important;
+  }
+
   /* Better touch targets */
   button,
   a {
@@ -897,47 +900,94 @@ body {
     min-width: 44px;
   }
 
-  /* Reduce blur effects on mobile */
+  /* Remove ALL blur effects on mobile */
+  *[class*='blur'] {
+    filter: none !important;
+  }
+
   [style*='blur'] {
-    filter: blur(15px) !important;
+    filter: none !important;
   }
 
-  /* GPU acceleration for smooth scrolling */
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  /* Disable heavy animations on scroll */
-  [class*='motion'] {
+  /* Disable ALL framer-motion animations on mobile */
+  [class*='motion'],
+  [data-projection-id] {
+    animation: none !important;
+    transition: none !important;
     will-change: auto !important;
   }
 
   /* Optimize image rendering */
   img {
-    transform: translateZ(0);
-  }
-
-  /* Reduce gradient complexity */
-  [class*='gradient'] {
-    background-attachment: scroll !important;
+    transform: translate3d(0, 0, 0);
+    image-rendering: -webkit-optimize-contrast;
   }
 
   /* Simplify shadows on mobile */
-  .shadow-2xl {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+  .shadow-2xl,
+  .shadow-xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .shadow-lg {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
   }
 
   /* Optimize touch scrolling */
   body {
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
   }
 
-  /* Optimize sections for smooth scrolling */
+  /* Optimize sections - CRITICAL for performance */
   section {
-    contain: layout style paint;
+    contain: layout style;
+    content-visibility: auto;
+  }
+
+  /* Disable hover effects on mobile */
+  .group:hover,
+  .hover\\:bg-\\[\\#C6D92E\\]:hover,
+  .hover\\:rounded-2xl:hover {
+    background-color: inherit !important;
+    border-radius: inherit !important;
+  }
+
+  /* Simplify SVG rendering */
+  svg {
+    shape-rendering: optimizeSpeed;
+    transform: translateZ(0);
+  }
+
+  /* Remove gradient complexity */
+  [class*='gradient-to-br'] {
+    background-image: linear-gradient(
+      to bottom,
+      var(--tw-gradient-stops)
+    ) !important;
+  }
+
+  /* Optimize emoji rendering */
+  .text-5xl,
+  .text-6xl {
+    font-size: 2.5rem !important;
+  }
+
+  /* Disable transitions during scroll for smoothness */
+  * {
+    transition-duration: 0.15s !important;
+  }
+
+  /* Optimize background gradients */
+  [class*='bg-gradient'] {
+    background-attachment: scroll !important;
+  }
+
+  /* Force hardware acceleration on key elements */
+  section,
+  div[class*='max-w'] {
+    transform: translateZ(0);
+    will-change: auto;
   }
 }
 

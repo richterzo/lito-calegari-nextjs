@@ -1169,10 +1169,10 @@ const HomePage = () => {
             {/* Grafica Card */}
             <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
-              <div className="relative mb-8 flex justify-end">
+              <div className="relative mb-6 md:mb-8 flex justify-end">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
-                  <div className="relative z-10 w-20 h-20">
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-16 h-16 md:w-24 md:h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-14 h-14 md:w-20 md:h-20">
                     {/* Computer/Design Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <rect
@@ -1240,8 +1240,10 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6 text-black">Grafica</h3>
-              <p className="text-black leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">
+                Grafica
+              </h3>
+              <p className="text-black leading-relaxed text-base md:text-lg">
                 Diamo forma alle tue idee con creatività e competenza,
                 realizzando progetti grafici dal forte impatto visivo,
                 accompagnandoti in ogni fase della creazione.
@@ -1251,10 +1253,10 @@ const HomePage = () => {
             {/* Stampa Card */}
             <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
-              <div className="relative mb-8 flex justify-end">
+              <div className="relative mb-6 md:mb-8 flex justify-end">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
-                  <div className="relative z-10 w-20 h-20">
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-16 h-16 md:w-24 md:h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-14 h-14 md:w-20 md:h-20">
                     {/* Printer Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <rect
@@ -1323,8 +1325,10 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6 text-black">Stampa</h3>
-              <p className="text-black leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">
+                Stampa
+              </h3>
+              <p className="text-black leading-relaxed text-base md:text-lg">
                 Macchinari di ultima generazione e materiali certificati FSC® ci
                 consentono di offrirti stampe rapide, di qualità eccellente e
                 rispettose dell&apos;ambiente.
@@ -1334,10 +1338,10 @@ const HomePage = () => {
             {/* Finitura Card */}
             <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
               {/* Icon with yellow circle background */}
-              <div className="relative mb-8 flex justify-end">
+              <div className="relative mb-6 md:mb-8 flex justify-end">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
-                  <div className="relative z-10 w-20 h-20">
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-16 h-16 md:w-24 md:h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-14 h-14 md:w-20 md:h-20">
                     {/* Diamond/Gem Icon */}
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <circle
@@ -1407,8 +1411,10 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6 text-black">Finitura</h3>
-              <p className="text-black leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">
+                Finitura
+              </h3>
+              <p className="text-black leading-relaxed text-base md:text-lg">
                 Rendiamo ogni lavoro unico grazie a finiture di pregio e cura
                 dei dettagli, per dare un tocco distintivo e valorizzare al
                 massimo la tua comunicazione.
@@ -1417,10 +1423,10 @@ const HomePage = () => {
 
             {/* Extra Card - 4th Service */}
             <div className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer">
-              <div className="relative mb-8 flex justify-end">
+              <div className="relative mb-6 md:mb-8 flex justify-end">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-24 h-24 opacity-80 -right-2 -top-2" />
-                  <div className="relative z-10 w-20 h-20">
+                  <div className="absolute inset-0 bg-[#C6D92E] rounded-full w-16 h-16 md:w-24 md:h-24 opacity-80 -right-2 -top-2" />
+                  <div className="relative z-10 w-14 h-14 md:w-20 md:h-20">
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <path
                         d="M 50 20 L 55 40 L 75 40 L 60 52 L 65 72 L 50 60 L 35 72 L 40 52 L 25 40 L 45 40 Z"
@@ -1465,8 +1471,10 @@ const HomePage = () => {
                 </div>
               </div>
 
-              <h3 className="text-3xl font-bold mb-6 text-black">Extra</h3>
-              <p className="text-black leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">
+                Extra
+              </h3>
+              <p className="text-black leading-relaxed text-base md:text-lg">
                 Superiamo i limiti della carta con stampe su supporti innovativi
                 e di prestigio, offrendo nuove possibilità creative per
                 valorizzare la tua comunicazione.
@@ -1942,117 +1950,71 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* FILOSOFIA - Premium Enhanced Version */}
-      <section className="min-h-screen flex items-center justify-center py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
-        {/* Animated background elements */}
-        <motion.div className="absolute inset-0 opacity-20">
-          <motion.div
-            className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [0, 50, 0],
-              y: [0, -50, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          <motion.div
-            className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              x: [0, -50, 0],
-              y: [0, 50, 0],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        </motion.div>
+      {/* FILOSOFIA - Premium Enhanced Version (Static on mobile) */}
+      <section className="min-h-screen flex items-center justify-center py-16 md:py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        {/* Animated background elements - Desktop only */}
+        {!isMobile && (
+          <motion.div className="absolute inset-0 opacity-20">
+            <motion.div
+              className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-br from-[#C6D92E] to-[#B8C526] rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                x: [0, 50, 0],
+                y: [0, -50, 0],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            <motion.div
+              className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                x: [0, -50, 0],
+                y: [0, 50, 0],
+              }}
+              transition={{
+                duration: 18,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+          </motion.div>
+        )}
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Content Side */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{}}
-            >
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+            {/* Content Side - Static on mobile */}
+            <div>
               {/* Label */}
-              <motion.div
-                initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile ? 0.2 : 0.6 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3 mb-6"
-              >
+              <div className="flex items-center gap-3 mb-6">
                 {!isMobile && (
-                  <motion.div
-                    className="h-px w-12 bg-gradient-to-r from-[#C6D92E] to-transparent"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{}}
-                  />
+                  <div className="h-px w-12 bg-gradient-to-r from-[#C6D92E] to-transparent" />
                 )}
                 <span className="text-sm text-[#C6D92E] tracking-widest uppercase font-semibold">
                   La Nostra Filosofia
                 </span>
-              </motion.div>
-
-              {/* Title words - No animation on mobile */}
-              <div className="mb-8">
-                {isMobile ? (
-                  <h3 className="text-4xl font-bold text-white mb-2">
-                    Stampa Personalizzazione Passione
-                  </h3>
-                ) : (
-                  <>
-                    {['Stampa', 'Personalizzazione', 'Passione'].map(
-                      (word, index) => (
-                        <motion.h3
-                          key={word}
-                          initial={{ opacity: 0, x: -30 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.6, delay: index * 0.2 }}
-                          viewport={{}}
-                          className="text-4xl md:text-5xl font-bold text-white mb-2"
-                        >
-                          {word}
-                        </motion.h3>
-                      )
-                    )}
-                  </>
-                )}
               </div>
 
-              {/* Description with typewriter effect (disabled on mobile for performance) */}
-              <motion.p
-                initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: isMobile ? 0.2 : 0.8,
-                  delay: isMobile ? 0 : 0.6,
-                }}
-                viewport={{ once: true }}
-                className="text-xl md:text-2xl leading-relaxed text-gray-300"
-              >
-                {isMobile ? (
-                  'La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto.'
-                ) : (
-                  <TypeWriter
-                    text="La nostra filosofia è quella di accompagnare il Cliente attraverso tutte le fasi del processo creativo partendo da una semplice bozza fino ad arrivare al mockup definitivo del prodotto."
-                    speed={30}
-                    delay={500}
-                  />
-                )}
-              </motion.p>
-            </motion.div>
+              {/* Title words - Static */}
+              <div className="mb-6 md:mb-8">
+                <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                  Stampa
+                  <br className="md:hidden" /> Personalizzazione
+                  <br className="md:hidden" /> Passione
+                </h3>
+              </div>
+
+              {/* Description - Static text always */}
+              <p className="text-lg md:text-2xl leading-relaxed text-gray-300">
+                La nostra filosofia è quella di accompagnare il Cliente
+                attraverso tutte le fasi del processo creativo partendo da una
+                semplice bozza fino ad arrivare al mockup definitivo del
+                prodotto.
+              </p>
+            </div>
 
             {/* Visual Side - Static on mobile for performance */}
             <div
@@ -2080,10 +2042,17 @@ const HomePage = () => {
               ].map((card, index) => (
                 <div
                   key={index}
-                  className={`relative h-40 md:h-48 bg-gradient-to-br ${card.gradient} rounded-2xl md:rounded-3xl shadow-lg md:shadow-2xl overflow-hidden`}
+                  className={`relative h-36 md:h-48 ${
+                    isMobile
+                      ? card.gradient.replace(
+                          'bg-gradient-to-br',
+                          'bg-gradient-to-b'
+                        )
+                      : `bg-gradient-to-br ${card.gradient}`
+                  } rounded-xl md:rounded-3xl shadow-md md:shadow-2xl overflow-hidden`}
                 >
                   {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl opacity-30">
+                  <div className="absolute inset-0 flex items-center justify-center text-4xl md:text-6xl opacity-30">
                     {card.icon}
                   </div>
                 </div>
