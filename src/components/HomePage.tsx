@@ -3,28 +3,8 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { TypeWriter } from './TypeWriter'
-import {
-  ChevronDown,
-  Menu,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  ArrowRight,
-  Sparkles,
-  Zap,
-} from 'lucide-react'
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  AnimatePresence,
-  useMotionValue,
-  useVelocity,
-  useAnimationFrame,
-  cubicBezier,
-} from 'framer-motion'
+import { ChevronDown, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion, useScroll, AnimatePresence } from 'framer-motion'
 
 const HomePage = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -35,16 +15,6 @@ const HomePage = () => {
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
-  })
-
-  // Global Parallax effects
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0.8])
-
-  const springY = useSpring(y, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
   })
 
   const testimonials = [
@@ -123,13 +93,8 @@ const HomePage = () => {
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* PREMIUM HEADER - Glassmorphism */}
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) }}
-        className="fixed top-0 left-0 right-0 z-50 glass shadow-premium"
-      >
+      {/* PREMIUM HEADER - Glassmorphism (No animation for better CLS) */}
+      <header className="fixed top-0 left-0 right-0 z-50 glass shadow-premium">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link
             href="/"
@@ -246,7 +211,7 @@ const HomePage = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.header>
+      </header>
 
       {/* HERO SECTION - With Animated Typography Background */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
@@ -683,11 +648,11 @@ const HomePage = () => {
 
             {/* Main Headline - Semibold Typography */}
             <motion.h1
-              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.3 : 0.8,
-                delay: isMobile ? 0 : 0.7,
+                duration: isMobile ? 0.2 : 0.5,
+                delay: isMobile ? 0 : 0.3,
               }}
               className="mb-8 leading-[0.95]"
               style={{
@@ -716,11 +681,11 @@ const HomePage = () => {
 
             {/* Description - Better Typography */}
             <motion.p
-              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{
-                duration: isMobile ? 0.3 : 0.8,
-                delay: isMobile ? 0 : 0.9,
+                duration: isMobile ? 0.2 : 0.5,
+                delay: isMobile ? 0.1 : 0.5,
               }}
               className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-12 font-normal"
               style={{
@@ -735,9 +700,12 @@ const HomePage = () => {
 
             {/* CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: isMobile ? 0.2 : 0.5,
+                delay: isMobile ? 0.2 : 0.7,
+              }}
               className="mt-12"
             >
               <Link
@@ -811,7 +779,7 @@ const HomePage = () => {
                 z: 50,
                 transition: {
                   duration: 0.5,
-                  ease: cubicBezier(0.25, 0.46, 0.45, 0.94),
+                  ease: 'easeOut',
                 },
               }}
               className="group relative h-72 md:h-96 rounded-3xl overflow-hidden shadow-premium-lg transform-3d cursor-pointer"
@@ -1002,7 +970,7 @@ const HomePage = () => {
               letterSpacing: '-0.02em',
             }}
           >
-            Offriamo un'ampia gamma di soluzioni di{' '}
+            Offriamo un&apos;ampia gamma di soluzioni di{' '}
             <motion.span
               initial={{ backgroundSize: '0% 100%' }}
               whileInView={{ backgroundSize: '100% 100%' }}
@@ -1654,7 +1622,7 @@ const HomePage = () => {
               viewport={{}}
               className="text-lg text-gray-600 max-w-2xl mx-auto"
             >
-              Di seguito un'idea di quello che siamo in grado di fare
+              Di seguito un&apos;idea di quello che siamo in grado di fare
             </motion.p>
           </div>
 
@@ -1877,7 +1845,7 @@ const HomePage = () => {
                       <p className="text-gray-700 leading-relaxed text-lg">
                         Consigliata per tirature medio/basse con formati fino ad
                         un massimale di (33×100 cm). Consente inoltre una
-                        maggiore rapidità d'esecuzione, la possibilità di
+                        maggiore rapidità d&apos;esecuzione, la possibilità di
                         effettuare lavorazioni con dato variabile e la si può
                         applicare ad una più ampia varietà di supporti.
                       </p>
@@ -2302,7 +2270,7 @@ const HomePage = () => {
               >
                 {/* Quote Icon */}
                 <div className="absolute top-8 left-8 text-[#C6D92E] opacity-20 text-7xl font-serif">
-                  "
+                  &ldquo;
                 </div>
 
                 {/* Content */}
@@ -2333,7 +2301,7 @@ const HomePage = () => {
 
                     <div className="flex-1">
                       <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4 md:mb-6">
-                        "{testimonials[currentTestimonial].text}"
+                        &ldquo;{testimonials[currentTestimonial].text}&rdquo;
                       </p>
 
                       <div>
