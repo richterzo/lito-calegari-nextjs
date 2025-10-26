@@ -214,10 +214,7 @@ const HomePage = () => {
       </header>
 
       {/* HERO SECTION - With Animated Typography Background */}
-      <section
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
-        style={{ minHeight: '100vh' }}
-      >
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
         {/* Blueprint Paper Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-yellow-50/20" />
 
@@ -613,7 +610,7 @@ const HomePage = () => {
 
         {/* Main content */}
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <div style={{ minHeight: '60vh' }}>
+          <div>
             {/* Overline - Enhanced */}
             <div className="mb-8 flex items-center justify-center gap-3">
               {!isMobile && (
@@ -644,14 +641,13 @@ const HomePage = () => {
                 fontSize: 'clamp(2.8rem, 9vw, 8rem)',
                 fontWeight: 600,
                 letterSpacing: '-0.02em',
-                minHeight: 'clamp(5.6rem, 18vw, 16rem)',
+                height: 'auto',
               }}
             >
               <span
                 className="block text-gray-900"
                 style={{
                   fontWeight: 600,
-                  minHeight: 'clamp(2.8rem, 9vw, 8rem)',
                   display: 'block',
                 }}
               >
@@ -661,7 +657,6 @@ const HomePage = () => {
                 className="block mt-2 text-gray-900"
                 style={{
                   fontWeight: 600,
-                  minHeight: 'clamp(2.8rem, 9vw, 8rem)',
                   display: 'block',
                 }}
               >
@@ -675,7 +670,6 @@ const HomePage = () => {
               style={{
                 lineHeight: 1.7,
                 fontWeight: 400,
-                minHeight: 'clamp(4rem, 10vw, 6rem)',
               }}
             >
               Dalla progettazione grafica alla stampa di alta qualità, offriamo
@@ -688,13 +682,6 @@ const HomePage = () => {
               <Link
                 href="/contatti"
                 className="inline-block bg-[#C6D92E] text-black px-8 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#B8C526] transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                style={{
-                  minWidth: '200px',
-                  minHeight: '56px',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
               >
                 CONTATTACI
               </Link>
