@@ -41,13 +41,13 @@ const FilosofiaSection = ({ isMobile }: FilosofiaSectionProps) => {
               <div className="mb-5 md:mb-6">
                 <div className="flex gap-2 md:gap-3 flex-wrap overflow-x-auto scrollbar-hide">
                   {[
-                    { label: 'Stampa', color: 'from-[#C6D92E] to-[#B8C526]' },
+                    { label: 'Stampa', borderColor: 'border-[#C6D92E]' },
                     {
                       label: 'Personalizzazione',
-                      color: 'from-gray-700 to-gray-900',
+                      borderColor: 'border-cyan-500',
                     },
-                    { label: 'Passione', color: 'from-gray-800 to-black' },
-                    { label: 'Qualità', color: 'from-[#B8C526] to-[#A8B01E]' },
+                    { label: 'Passione', borderColor: 'border-pink-500' },
+                    { label: 'Qualità', borderColor: 'border-purple-500' },
                   ].map((pill, i) => (
                     <motion.div
                       key={pill.label}
@@ -55,7 +55,7 @@ const FilosofiaSection = ({ isMobile }: FilosofiaSectionProps) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false, margin: '-20% 0%' }}
                       transition={{ duration: 0.35, delay: i * 0.05 }}
-                      className={`flex-shrink-0 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-gradient-to-br ${pill.color} text-white text-sm md:text-base font-semibold border border-white/10 shadow-inner`}
+                      className={`flex-shrink-0 px-3 md:px-4 py-1.5 md:py-2 rounded-xl backdrop-blur-sm bg-white/5 text-white text-sm md:text-base font-semibold border-2 ${pill.borderColor} shadow-lg hover:bg-white/10 transition-all`}
                     >
                       {pill.label}
                     </motion.div>

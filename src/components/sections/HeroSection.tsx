@@ -194,7 +194,7 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
 
       {/* Main content */}
       <motion.div
-        className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10 mt-16 md:mt-20"
+        className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10 flex flex-col justify-center items-center min-h-screen"
         style={{ opacity }}
       >
         {/* Tagline */}
@@ -202,7 +202,7 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-8 md:mb-16"
+          className="mb-12 md:mb-20"
         >
           <motion.div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
             <motion.div
@@ -223,21 +223,23 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
           </motion.div>
         </motion.div>
 
-        {/* Main Headline - POPPINS SEMIBOLD - PIÙ PICCOLO SU MOBILE */}
+        {/* Main Headline - POPPINS SEMIBOLD - Ridotto del 30% totale */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="font-semibold leading-[1.1] md:leading-[0.9] text-black mb-6 md:mb-12 px-2 md:px-0"
+          className="font-semibold leading-[1.3] md:leading-[1.2] text-neutral-800 mb-10 md:mb-16 px-2 md:px-0"
           style={{
-            fontSize: isMobile ? '48px' : 'clamp(67px, 14vw, 10rem)',
+            fontSize: isMobile ? '34px' : 'clamp(48px, 10vw, 7.2rem)',
             letterSpacing: '-0.02em',
             wordBreak: 'keep-all',
             overflowWrap: 'normal',
             hyphens: 'none',
           }}
         >
-          Studio Grafico e Stampa
+          Studio grafico e
+          <br />
+          stampa
         </motion.h1>
 
         {/* Description with fade-in - POPPINS REGULAR 16px */}
@@ -245,11 +247,13 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="text-gray-700 max-w-xl md:max-w-4xl mx-auto mb-8 md:mb-12 font-normal px-4 md:px-0"
+          className="text-gray-700 max-w-xl md:max-w-4xl mx-auto mb-10 md:mb-16 font-normal px-4 md:px-0"
           style={{ fontSize: '16px', lineHeight: '1.7' }}
         >
-          Dalla progettazione grafica alla stampa di alta qualità, offriamo
-          soluzioni creative e su misura per valorizzare la tua comunicazione
+          Dalla progettazione grafica alla stampa di alta qualità,
+          <br />
+          offriamo soluzioni creative e su misura per valorizzare la tua
+          comunicazione
         </motion.p>
 
         {/* CTA Button with magnetic effect */}
@@ -277,35 +281,6 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
               <span className="relative z-10">CONTATTACI</span>
             </motion.button>
           </Link>
-        </motion.div>
-
-        {/* Scroll Indicator - appare dopo 3 secondi */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 1 }}
-          className="mt-12 md:mt-24"
-        >
-          <motion.div
-            className="flex flex-col items-center gap-2"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <span className="text-xs tracking-widest uppercase font-medium text-gray-500">
-              Scroll
-            </span>
-            <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center p-2">
-              <motion.div
-                className="w-1.5 h-1.5 bg-gray-600 rounded-full"
-                animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
-            </div>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>

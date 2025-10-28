@@ -163,7 +163,7 @@ const TestimonialsSection = ({
                       {/* Badge */}
                       <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-[#C6D92E] rounded-full flex items-center justify-center shadow-lg">
                         <svg
-                          className="w-6 h-6 text-black"
+                          className="w-6 h-6 text-neutral-800"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >

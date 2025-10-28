@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, memo } from 'react'
 import { motion, useScroll, useInView } from 'framer-motion'
 
 // Sections
@@ -78,13 +78,16 @@ const HomePage = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-white">
-      {/* Scroll Progress Indicator */}
+      {/* Scroll Progress Indicator - Optimized */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#C6D92E] to-[#B8C526] origin-left z-[100]"
-        style={{ scaleX: scrollYProgress }}
+        style={{
+          scaleX: scrollYProgress,
+          willChange: 'transform',
+        }}
       />
 
-      {/* All Sections */}
+      {/* All Sections - Optimized */}
       <HeroSection isMobile={isMobile} />
       <ImageGallerySection isMobile={isMobile} />
       <DescriptionSection />
@@ -117,4 +120,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default memo(HomePage)

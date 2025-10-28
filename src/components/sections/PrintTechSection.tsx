@@ -153,7 +153,7 @@ const PrintTechSection = ({
                       <div className="flex items-start gap-4">
                         <motion.div
                           whileHover={{ scale: 1.05, rotate: 3 }}
-                          className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-black font-bold text-xl bg-[#C6D92E]"
+                          className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-neutral-800 font-bold text-xl bg-[#C6D92E]"
                         >
                           01
                         </motion.div>
@@ -284,7 +284,7 @@ const PrintTechSection = ({
                   className="flex items-start justify-between"
                   style={{ transform: isMobile ? 'none' : 'translateZ(10px)' }}
                 >
-                  <div className="text-black drop-shadow-lg">
+                  <div className="text-neutral-800 drop-shadow-lg">
                     <div className="text-[11px] md:text-sm lg:text-base font-semibold uppercase tracking-wider opacity-90">
                       Lito Calegari
                     </div>
@@ -312,14 +312,14 @@ const PrintTechSection = ({
                   >
                     PRINT
                   </motion.div>
-                  <div className="text-black/80 text-xs md:text-base lg:text-xl font-semibold tracking-wide drop-shadow">
+                  <div className="text-neutral-800/80 text-xs md:text-base lg:text-xl font-semibold tracking-wide drop-shadow">
                     Excellence
                   </div>
                 </motion.div>
 
                 {/* Bottom - Details */}
                 <motion.div
-                  className="flex items-end justify-between text-[9px] md:text-xs lg:text-sm text-black/80 drop-shadow"
+                  className="flex items-end justify-between text-[9px] md:text-xs lg:text-sm text-neutral-800/80 drop-shadow"
                   style={{ transform: isMobile ? 'none' : 'translateZ(15px)' }}
                 >
                   <div>Bologna, Italia</div>

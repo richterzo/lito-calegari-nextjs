@@ -81,10 +81,10 @@ const ServicesSection = forwardRef<HTMLDivElement, ServicesSectionProps>(
                 key={i}
                 className="group relative bg-white border-2 border-black p-6 md:p-8 rounded-lg hover:bg-[#C6D92E] hover:rounded-2xl transition-all duration-300 cursor-pointer"
               >
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-neutral-800">
                   {service.title}
                 </h3>
-                <p className="text-black leading-relaxed text-base md:text-lg">
+                <p className="text-neutral-800 leading-relaxed text-base md:text-lg">
                   {service.desc}
                 </p>
               </div>
@@ -136,10 +136,10 @@ const ServicesSection = forwardRef<HTMLDivElement, ServicesSectionProps>(
                       minWidth: 'calc(33.333% - 5.333rem)',
                     }}
                   >
-                    <h3 className="text-3xl font-bold mb-6 text-black">
+                    <h3 className="text-3xl font-bold mb-6 text-neutral-800">
                       {service.title}
                     </h3>
-                    <p className="text-black leading-relaxed text-lg">
+                    <p className="text-neutral-800 leading-relaxed text-lg">
                       {service.desc}
                     </p>
                     <motion.div
