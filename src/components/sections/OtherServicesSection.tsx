@@ -61,15 +61,15 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
         })
       }
     }
-    
+
     updateSize()
-    
+
     let timeoutId: NodeJS.Timeout
     const debouncedUpdate = () => {
       clearTimeout(timeoutId)
       timeoutId = setTimeout(updateSize, 150)
     }
-    
+
     window.addEventListener('resize', debouncedUpdate, { passive: true })
     return () => {
       clearTimeout(timeoutId)
@@ -90,9 +90,10 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
     // Initialize spheres when in view - Use requestIdleCallback for better TBT
     if (containerSize.width === 0) return
 
-    const idleCallback = typeof window !== 'undefined' && 'requestIdleCallback' in window
-      ? window.requestIdleCallback
-      : (cb: () => void) => setTimeout(cb, 1)
+    const idleCallback =
+      typeof window !== 'undefined' && 'requestIdleCallback' in window
+        ? window.requestIdleCallback
+        : (cb: () => void) => setTimeout(cb, 1)
 
     const handle = idleCallback(() => {
       const initialSpheres = services.map((service, index) => {

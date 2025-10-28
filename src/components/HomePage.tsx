@@ -35,13 +35,13 @@ const HomePage = () => {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
-    
+
     let timeoutId: NodeJS.Timeout
     const debouncedCheck = () => {
       clearTimeout(timeoutId)
       timeoutId = setTimeout(checkMobile, 150)
     }
-    
+
     window.addEventListener('resize', debouncedCheck, { passive: true })
     return () => {
       clearTimeout(timeoutId)
