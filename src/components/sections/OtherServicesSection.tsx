@@ -51,7 +51,7 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
   const MIN_VELOCITY = useMemo(() => 0.2, [])
   const MAX_VELOCITY = useMemo(() => 15, [])
 
-  // Initialize container size
+  // Initialize container size - Debounced resize
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
@@ -61,12 +61,23 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
         })
       }
     }
+    
     updateSize()
-    window.addEventListener('resize', updateSize)
-    return () => window.removeEventListener('resize', updateSize)
+    
+    let timeoutId: NodeJS.Timeout
+    const debouncedUpdate = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(updateSize, 150)
+    }
+    
+    window.addEventListener('resize', debouncedUpdate, { passive: true })
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', debouncedUpdate)
+    }
   }, [])
 
-  // Initialize/clear spheres based on view state
+  // Initialize/clear spheres based on view state - Defer for TBT optimization
   useEffect(() => {
     // Clear spheres when out of view
     if (!isInView) {
@@ -76,10 +87,14 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
       return () => clearTimeout(timer)
     }
 
-    // Initialize spheres when in view
+    // Initialize spheres when in view - Use requestIdleCallback for better TBT
     if (containerSize.width === 0) return
 
-    const timer = setTimeout(() => {
+    const idleCallback = typeof window !== 'undefined' && 'requestIdleCallback' in window
+      ? window.requestIdleCallback
+      : (cb: () => void) => setTimeout(cb, 1)
+
+    const handle = idleCallback(() => {
       const initialSpheres = services.map((service, index) => {
         const size = isMobile ? sphereSizes[index] * 0.75 : sphereSizes[index]
         return {
@@ -93,9 +108,15 @@ const OtherServicesSection = ({ isMobile }: OtherServicesSectionProps) => {
         }
       })
       setSpheres(initialSpheres)
-    }, 100)
+    })
 
-    return () => clearTimeout(timer)
+    return () => {
+      if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(handle as number)
+      } else {
+        clearTimeout(handle as number)
+      }
+    }
   }, [isInView, isMobile, containerSize.width])
 
   // Perfect collision detection and resolution - Zero glitch

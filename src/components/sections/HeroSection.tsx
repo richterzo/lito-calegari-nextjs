@@ -267,7 +267,7 @@ const HeroSection = ({ isMobile }: HeroSectionProps) => {
             <motion.button
               whileHover={!isMobile ? { scale: 1.05 } : {}}
               whileTap={{ scale: 0.95 }}
-              className="relative group bg-[#C6D92E] text-black px-8 md:px-10 py-3.5 md:py-5 rounded-full text-base md:text-lg font-semibold tracking-wide overflow-hidden w-full md:w-auto"
+              className="relative group bg-[#C6D92E] text-neutral-800 px-8 md:px-10 py-3.5 md:py-5 rounded-full text-base md:text-lg font-semibold tracking-wide overflow-hidden w-full md:w-auto"
             >
               {/* Shine effect */}
               {!isMobile && (

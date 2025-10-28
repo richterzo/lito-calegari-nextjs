@@ -31,12 +31,22 @@ const HomePage = () => {
     offset: ['start start', 'end end'],
   })
 
-  // Detect mobile
+  // Detect mobile - Debounced for performance
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    
+    let timeoutId: NodeJS.Timeout
+    const debouncedCheck = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(checkMobile, 150)
+    }
+    
+    window.addEventListener('resize', debouncedCheck, { passive: true })
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', debouncedCheck)
+    }
   }, [])
 
   // Services carousel: start from first when section enters view
