@@ -81,9 +81,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={poppins.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preload" as="image" href="/Logo-LitoCalegari.png" />
+      </head>
       <body className="antialiased font-sans">
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
       </body>
     </html>
   )

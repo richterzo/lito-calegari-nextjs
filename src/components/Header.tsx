@@ -12,6 +12,7 @@ const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   // Show navbar after delay or on first scroll
   useEffect(() => {
@@ -21,10 +22,14 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Show navbar on any scroll
+      // Show navbar on any scroll, hide when at top
       if (currentScrollY > 10) {
         setIsVisible(true)
+        setIsScrolled(true)
         clearTimeout(timer)
+      } else {
+        setIsScrolled(false)
+        setIsVisible(false)
       }
     }
 
@@ -75,7 +80,11 @@ const Header = () => {
           ease: [0.22, 1, 0.36, 1],
           delay: isVisible ? 0 : 0,
         }}
-        className="h-20 fixed top-0 w-full bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-100/50 z-[100]"
+        className={`h-20 fixed top-0 w-full backdrop-blur-xl shadow-sm border-b z-[100] transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/80 border-gray-100/50'
+            : 'bg-transparent border-transparent'
+        }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           {/* Logo */}

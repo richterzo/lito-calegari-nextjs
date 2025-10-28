@@ -1,6 +1,12 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion'
+import { useState, useRef } from 'react'
 
 interface PrintTechSectionProps {
   selectedTech: 'offset' | 'digitale'
@@ -11,16 +17,42 @@ const PrintTechSection = ({
   selectedTech,
   onTechChange,
 }: PrintTechSectionProps) => {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const rotateX = useTransform(mouseY, [-300, 300], [15, -15])
+  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || window.innerWidth < 768) return // Disable on mobile/tablet
+    const rect = cardRef.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    mouseX.set(e.clientX - centerX)
+    mouseY.set(e.clientY - centerY)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+
   return (
-    <section className="min-h-screen flex items-center justify-center py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center py-16 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-20 right-20 w-64 h-64 bg-[#C6D92E] rounded-full blur-[120px]" />
         <div className="absolute bottom-20 left-20 w-64 h-64 bg-black rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Content Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -176,58 +208,144 @@ const PrintTechSection = ({
           </motion.div>
 
           {/* Visual Side */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{}}
-            className="relative"
+          <div
+            className="relative perspective-1000"
+            style={{ perspective: '1000px' }}
           >
             <motion.div
-              whileHover={{ scale: 1.02, rotate: 1 }}
-              transition={{ duration: 0.3 }}
-              className="relative h-[500px] bg-gradient-to-br from-[#C6D92E] via-[#B8C526] to-[#A8B01E] rounded-3xl shadow-2xl overflow-hidden cursor-pointer"
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={handleMouseLeave}
+              animate={{
+                z: isHovered && !isMobile ? 50 : 0,
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="relative w-full bg-gradient-to-br from-[#C6D92E] via-[#B8C526] to-[#A8B01E] rounded-xl md:rounded-2xl lg:rounded-3xl overflow-hidden cursor-pointer mx-auto"
+              style={{
+                rotateX: isMobile ? 0 : rotateX,
+                rotateY: isMobile ? 0 : rotateY,
+                transformStyle: 'preserve-3d',
+                aspectRatio: '85/55',
+                maxWidth: '600px',
+                minHeight: '220px',
+                boxShadow:
+                  isHovered && !isMobile
+                    ? '0 30px 60px -15px rgba(198, 217, 46, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.3)'
+                    : '0 15px 30px -10px rgba(0, 0, 0, 0.2)',
+              }}
             >
-              {/* Animated pattern */}
+              {/* Glossy overlay for realism */}
               <motion.div
-                className="absolute inset-0"
-                animate={{
-                  backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                className="absolute inset-0 opacity-30 pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)',
-                  backgroundSize: '200% 200%',
+                    'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
+                  transform: 'translateZ(1px)',
                 }}
               />
 
-              {/* Text overlay with parallax */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* Subtle dot pattern */}
+              <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`,
+                  backgroundSize: '20px 20px',
+                  transform: 'translateZ(0)',
+                }}
+              />
+
+              {/* Holographic shine effect */}
+              <motion.div
+                className="absolute inset-0 opacity-0 pointer-events-none"
+                animate={{
+                  opacity: isHovered ? [0, 0.3, 0] : 0,
+                  background: isHovered
+                    ? [
+                        'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)',
+                        'linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)',
+                        'linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%)',
+                      ]
+                    : 'transparent',
+                }}
+                transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
+                style={{
+                  transform: 'translateZ(2px)',
+                }}
+              />
+
+              {/* Business Card Content with depth layers */}
+              <div
+                className="absolute inset-0 p-4 md:p-6 lg:p-10 flex flex-col justify-between"
+                style={{ transform: isMobile ? 'none' : 'translateZ(20px)' }}
+              >
+                {/* Top - Logo/Brand */}
                 <motion.div
-                  animate={{
-                    y: [0, -15, 0],
-                    rotate: [0, 2, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                  className="text-center"
+                  className="flex items-start justify-between"
+                  style={{ transform: isMobile ? 'none' : 'translateZ(10px)' }}
                 >
-                  <div className="text-white text-7xl md:text-8xl font-black opacity-20 mb-4">
-                    PRINT
+                  <div className="text-black drop-shadow-lg">
+                    <div className="text-[11px] md:text-sm lg:text-base font-semibold uppercase tracking-wider opacity-90">
+                      Lito Calegari
+                    </div>
+                    <div className="text-[9px] md:text-xs lg:text-sm font-normal opacity-70 mt-0.5">
+                      Studio Grafico
+                    </div>
                   </div>
-                  <div className="text-white/60 text-2xl font-semibold tracking-wider">
+                </motion.div>
+
+                {/* Center - Main message */}
+                <motion.div
+                  className="text-center"
+                  style={{ transform: isMobile ? 'none' : 'translateZ(40px)' }}
+                >
+                  <motion.div
+                    animate={{
+                      scale: isHovered && !isMobile ? 1.05 : 1,
+                    }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="text-white text-2xl md:text-4xl lg:text-6xl font-black drop-shadow-2xl mb-1 md:mb-2"
+                    style={{
+                      textShadow:
+                        '0 4px 20px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.2)',
+                    }}
+                  >
+                    PRINT
+                  </motion.div>
+                  <div className="text-black/80 text-xs md:text-base lg:text-xl font-semibold tracking-wide drop-shadow">
                     Excellence
                   </div>
                 </motion.div>
+
+                {/* Bottom - Details */}
+                <motion.div
+                  className="flex items-end justify-between text-[9px] md:text-xs lg:text-sm text-black/80 drop-shadow"
+                  style={{ transform: isMobile ? 'none' : 'translateZ(15px)' }}
+                >
+                  <div>Bologna, Italia</div>
+                  <div className="font-semibold">Est. 1970</div>
+                </motion.div>
               </div>
+
+              {/* Dynamic light reflection - Desktop only */}
+              {!isMobile && (
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: useTransform(
+                      [mouseX, mouseY],
+                      ([x, y]: number[]) => {
+                        const centerX = 50 + x / 10
+                        const centerY = 50 + y / 10
+                        return `radial-gradient(circle at ${centerX}% ${centerY}%, rgba(255,255,255,0.4) 0%, transparent 50%)`
+                      }
+                    ),
+                    transform: 'translateZ(50px)',
+                    opacity: isHovered ? 0.8 : 0,
+                    transition: 'opacity 0.3s',
+                  }}
+                />
+              )}
 
               {/* Decorative elements */}
               <motion.div
@@ -255,7 +373,7 @@ const PrintTechSection = ({
                 }}
               />
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

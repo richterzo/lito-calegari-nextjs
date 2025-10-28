@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical CSS - Prevent flash of unstyled content */
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
+body {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* Font fallback to prevent CLS - metrics adjusted to match Poppins */
 @font-face {
   font-family: 'Poppins-fallback';
